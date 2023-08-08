@@ -447,26 +447,11 @@ class mod_request(models.Model):
                 self.api_onchange_status(self.name, 'sustentado')
 
         elif self.type_request == 'judicial' and self.process_request in ('repayment'):
-            # if self.state == 'support_to_approve':
-            #     self.checklist_supported = False
-            #     self.attach_support=False
-            #     self.observation_supported = ''
-            #     self.state = 'pending'
-
-            # if self.state == 'supported':
-            #     self.state = 'pending'
-            #     self.checklist_supported = False
-            #     self.attach_support=False
-            #     self.observation_supported = ''
-            #     self.api_onchange_status(self.name, 'pendiente')
 
             if self.state == 'complete':
                 self.state = 'pending'
                 self.api_onchange_status(self.name, 'pendiente')
 
-            # elif self.state == 'to_correct':
-            #     self.state = 'supported'
-            #     self.api_onchange_status(self.name, 'sustentado')
 
         elif self.type_request == 'administrative' and self.process_request in ('purchase','transfer'):
             
