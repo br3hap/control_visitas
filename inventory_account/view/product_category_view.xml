@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="view_category_property_form_ajust">
+			<field name="name">view.category.property.form.ajust</field>
+			<field name="model">product.category</field>
+			<field name="inherit_id" ref="stock_account.view_category_property_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//group[@name='account_stock_property']" position="after">
+					<group name="account_inventory_ajust" string="Accounting Inventory Adjustment" colspan="2">
+                            <field name="missing_expense_account" 
+							options="{'no_quick_create': true,'no_create_edit' : true,'no_open': True}"/>
+							<field name="surplus_expense_account" 
+							options="{'no_quick_create': true,'no_create_edit' : true,'no_open': True}"/>
+							<field name="adjustment_valuation_account" 
+							options="{'no_quick_create': true,'no_create_edit' : true,'no_open': True}"/>
+                    </group>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

@@ -1,0 +1,19 @@
+id,code,description,type_categ,is_onerosa
+peb_catag_7_1,10,Operación Onerosa,gravadas,TRUE
+peb_catag_7_2,11,Retiro por premio,gravadas,FALSE
+peb_catag_7_3,12,Retiro por donación,gravadas,FALSE
+peb_catag_7_4,13,Retiro,gravadas,FALSE
+peb_catag_7_5,14,Retiro por publicidad,gravadas,FALSE
+peb_catag_7_6,15,Bonificaciones,gravadas,FALSE
+peb_catag_7_7,16,Retiro por entrega a trabajadores,gravadas,TRUE
+peb_catag_7_8,17,IVAP,gravadas,FALSE
+peb_catag_7_9,20,Operación Onerosa,exoneradas,TRUE
+peb_catag_7_10,21,Transferencia Gratuita,exoneradas,FALSE
+peb_catag_7_11,30,Operación Onerosa,inafectas,TRUE
+peb_catag_7_12,31,Retiro por Bonificación,inafectas,FALSE
+peb_catag_7_13,32,Retiro,inafectas,FALSE
+peb_catag_7_14,33,Retiro por Muestras Médicas,inafectas,FALSE
+peb_catag_7_15,34,Retiro por Convenio Colectivo,inafectas,FALSE
+peb_catag_7_16,35,Retiro por premio,inafectas,FALSE
+peb_catag_7_17,36,Retiro por publicidad,inafectas,FALSE
+peb_catag_7_18,40,Exportación,exoneradas,FALSE

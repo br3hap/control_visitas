@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record id='report_mod_request_action' model='ir.actions.report'>
+            <field name='name'>Request</field>
+            <field name='model'>mod.request</field>
+            <field name='report_type'>qweb-pdf</field>
+            <field name='report_name'>mod_request.report_mod_request</field>
+            <field name='report_file'>mod_request.report_mod_request</field>
+            <field name='binding_model_id' ref='model_mod_request' />
+            <field name='binding_type'>report</field>
+        </record>
+    </data>
+</odoo>

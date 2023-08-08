@@ -1,0 +1,61 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* fields_for_sunat
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-16 19:49+0000\n"
+"PO-Revision-Date: 2020-04-16 19:49+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: fields_for_sunat
+#: model:ir.model.fields,field_description:fields_for_sunat.field_account_tax__igv_affectation
+msgid "IGV Affectation"
+msgstr ""
+
+#. module: fields_for_sunat
+#: model:ir.model,name:fields_for_sunat.model_account_move
+msgid "Journal Entries"
+msgstr ""
+
+#. module: fields_for_sunat
+#: model:ir.model,name:fields_for_sunat.model_uom_uom
+msgid "Product Unit of Measure"
+msgstr ""
+
+#. module: fields_for_sunat
+#: model:ir.model,name:fields_for_sunat.model_account_tax
+msgid "Tax"
+msgstr ""
+
+#. module: fields_for_sunat
+#: model:ir.model.fields,field_description:fields_for_sunat.field_account_tax__tax_internactional_code
+msgid "Tax Internacional Code"
+msgstr ""
+
+#. module: fields_for_sunat
+#: model:ir.model.fields,field_description:fields_for_sunat.field_account_move__operation_type
+msgid "Type Operation"
+msgstr ""
+
+#. module: fields_for_sunat
+#: model:ir.model.fields,field_description:fields_for_sunat.field_uom_uom__unit_measure_code
+msgid "Unit of measure code"
+msgstr ""
+
+#. module: fields_for_sunat
+#: model:ir.model,name:fields_for_sunat.model_stock_warehouse
+msgid "Warehouse"
+msgstr ""
+
+#. module: fields_for_sunat
+#: model:ir.model.fields,field_description:fields_for_sunat.field_stock_warehouse__warehouse_annex_code
+msgid "Warehouse Annex Code"
+msgstr ""

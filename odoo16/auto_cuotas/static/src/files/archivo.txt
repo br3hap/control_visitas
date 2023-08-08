@@ -1,0 +1,83 @@
+<comprobanteVenta>
+  <Identificador>
+    <Serie>FCC1</Serie>
+    <Correlativo>26</Correlativo>
+    <CodigoTipoDoc>01</CodigoTipoDoc>
+  </Identificador>
+  <CodigoEmisor>EMPRESA01</CodigoEmisor>
+  <LlaveEmisor>1bec410485019e7fc7de2c41a3364f171b5cec99a9a07221c5b8b1bce5d20f75</LlaveEmisor>
+  <Emisor>
+    <RazonSocial>OPERU 360 S.A.C.</RazonSocial>
+    <CodTipoDocumento>6</CodTipoDocumento>
+    <NumeroDocumento>20508316985</NumeroDocumento>
+  </Emisor>
+  <DireccionEmisor>
+    <Detalle>JR. LOS CANARIOS MZA. E LOTE. 16 URB. AZCARRUNZ ALTO LIMA - LIMA - SAN JUAN DE LURIGANCHO</Detalle>
+  </DireccionEmisor>
+  <Cliente>
+    <RazonSocial>FACTOR X COMPANY S.A.C.</RazonSocial>
+    <NombreComercial>FACTOR X COMPANY S.A.C.</NombreComercial>
+    <CodTipoDocumento>6</CodTipoDocumento>
+    <NumeroDocumento>20605503421</NumeroDocumento>
+  </Cliente>
+  <DireccionCliente>
+    <Detalle>CAL.FEDERICO VILLARREAL NRO. 508 URB. CHACARILLA DE SANTA CRUZ (CRUCE REP. DE COLOMBIA CON FEDERICO VILL) LIMA - LIMA - SAN ISIDRO</Detalle>
+  </DireccionCliente>
+  <DatosDetraccion>
+    <NumeroCuenta>00004147995</NumeroCuenta>
+    <CodigoBienOSevicio>022</CodigoBienOSevicio>
+    <Porcentaje>12.00</Porcentaje>
+    <Monto>266.00</Monto>
+    <MontoBase>2212.50</MontoBase>
+    <MedioPago>001</MedioPago>
+  </DatosDetraccion>
+  <DatosPagoSunat>
+    <formaPago>Credito</formaPago>
+    <montoNetoPenPago>2212.50</montoNetoPenPago>
+    <cuotaSUNAT>
+      <nombre>Cuota001</nombre>
+      <monto>2000.50</monto>
+      <fechaVencimiento>2021-08-21</fechaVencimiento>
+    </cuotaSUNAT>
+    <cuotaSUNAT>
+      <nombre>Cuota002</nombre>
+      <monto>212.00</monto>
+      <fechaVencimiento>2021-08-21</fechaVencimiento>
+    </cuotaSUNAT>
+  </DatosPagoSunat>
+  <Notas>esto es una factura de detraccion</Notas>
+  <Notas>esto es una factura de detraccion2</Notas>
+  <Leyenda>
+    <Codigo>2006</Codigo>
+    <Descripcion>Leyenda: Operación sujeta a detracción</Descripcion>
+  </Leyenda>
+  <Item>
+    <UnidadMedidad>ZZ</UnidadMedidad>
+    <Cantidad>1.00</Cantidad>
+    <Descripcion>[SE000001] SERVICIO DE CONSULTORIA Y ASESORIA IMPLEMENTACI&#211;N ERP ODOO  - CUOTA 2 - 25%</Descripcion>
+    <ValorUnitario>1875.00</ValorUnitario>
+    <PrecioVentaUnitario>2212.50</PrecioVentaUnitario>
+    <ValorVenta>1875.00</ValorVenta>
+    <DscAfectaIGV>0.00</DscAfectaIGV>
+    <Impuesto>
+      <MontoBase>1875.00</MontoBase>
+      <MontoImpuesto>337.50</MontoImpuesto>
+      <Tasa>0.18</Tasa>
+      <CodAfectacion>10</CodAfectacion>
+      <CodTributo>1000</CodTributo>
+    </Impuesto>
+  </Item>
+  <Moneda>PEN</Moneda>
+  <HoraEmision>11:49:26</HoraEmision>
+  <FechaEmision>2021-08-06</FechaEmision>
+  <TipoOperacion>1001</TipoOperacion>
+  <ImpuestoTotal>337.50</ImpuestoTotal>
+  <Igv>337.50</Igv>
+  <Gravado>1875.00</Gravado>
+  <Exonerado>0.00</Exonerado>
+  <Exportacion>0.00</Exportacion>
+  <Inafecto>0.00</Inafecto>
+  <ImporteTotal>2212.50</ImporteTotal>
+  <PrecioVenta>2212.50</PrecioVenta>
+  <ValorVenta>1875.00</ValorVenta>
+</comprobanteVenta>

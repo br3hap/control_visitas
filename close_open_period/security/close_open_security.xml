@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="group_user_close_open_period" model="res.groups">
+            <field name="name">Manager close period</field>
+            <field name="comment">Management Close Period</field>
+        </record>
+    </data>
+</odoo>

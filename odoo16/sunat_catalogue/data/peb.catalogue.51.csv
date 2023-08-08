@@ -1,0 +1,19 @@
+id,code,description
+peb_catag_51_1,0101,Venta interna
+peb_catag_51_2,0112,Venta Interna - Sustenta Gastos Deducibles Persona Natural
+peb_catag_51_3,0113,Venta Interna-NRUS
+peb_catag_51_4,0200,Exportación de Bienes
+peb_catag_51_5,0201,Exportación de Servicios – Prestación servicios realizados íntegramente en el país
+peb_catag_51_6,0202,Exportación de Servicios – Prestación de servicios de hospedaje No Domiciliado
+peb_catag_51_7,0203,Exportación de Servicios – Transporte de navieras
+peb_catag_51_8,0204,Exportación de Servicios – Servicios  a naves y aeronaves de bandera extranjera
+peb_catag_51_9,0205,Exportación de Servicios  - Servicios que conformen un Paquete Turístico
+peb_catag_51_10,0206,Exportación de Servicios – Servicios complementarios al transporte de carga
+peb_catag_51_11,0207,Exportación de Servicios – Suministro de energía eléctrica a favor de sujetos domiciliados en ZED
+peb_catag_51_12,0208,Exportación de Servicios – Prestación servicios realizados parcialmente en el extranjero
+peb_catag_51_13,0301,Operaciones con Carta de porte aéreo (emitidas en el ámbito nacional)
+peb_catag_51_14,0302,Operaciones de Transporte ferroviario de pasajeros
+peb_catag_51_15,0303,Operaciones de Pago de regalía petrolera
+peb_catag_51_16,0401,Ventas no domiciliados que no califican como exportación
+peb_catag_51_17,1001,Operación Sujeta a Detracción
+peb_catag_51_18,2001,Operación Sujeta a Percepción

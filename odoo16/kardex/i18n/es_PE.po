@@ -1,0 +1,370 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* kardex
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-08 03:10+0000\n"
+"PO-Revision-Date: 2020-06-07 22:20-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_PE\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: kardex
+#: model:ir.model.fields.selection,name:kardex.selection__kardex_filter__month__4
+msgid "Abril"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields.selection,name:kardex.selection__kardex_filter__month__8
+msgid "Agosto"
+msgstr ""
+
+#. module: kardex
+#: model_terms:ir.ui.view,arch_db:kardex.view_kardex_filter_wizard
+msgid "Assistant for the generation of Kardex"
+msgstr "Asistente para la generación del Kardex"
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_stock_inventory__beginning_balance
+msgid "Beginning Balance"
+msgstr "¿Carga inicial?"
+
+#. module: kardex
+#: model:ir.actions.server,name:kardex.ir_cron_scheduler_calculte_stock_initial_kardex_ir_actions_server
+#: model:ir.cron,cron_name:kardex.ir_cron_scheduler_calculte_stock_initial_kardex
+#: model:ir.cron,name:kardex.ir_cron_scheduler_calculte_stock_initial_kardex
+msgid "CALCULAR STOCK INICIAL KARDEX"
+msgstr ""
+
+#. module: kardex
+#: model_terms:ir.ui.view,arch_db:kardex.view_kardex_filter_wizard
+msgid "Calculate initial stock"
+msgstr "Calcular stock inicial"
+
+#. module: kardex
+#: model_terms:ir.ui.view,arch_db:kardex.view_kardex_filter_wizard
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_stock_inventory__code
+msgid "Code"
+msgstr "Código"
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_kardex_filter__create_uid
+#: model:ir.model.fields,field_description:kardex.field_report_kardex__create_uid
+#: model:ir.model.fields,field_description:kardex.field_stock_init_kardex__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_kardex_filter__create_date
+#: model:ir.model.fields,field_description:kardex.field_report_kardex__create_date
+#: model:ir.model.fields,field_description:kardex.field_stock_init_kardex__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields.selection,name:kardex.selection__kardex_filter__month__12
+msgid "Diciembre"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_kardex_filter__display_name
+#: model:ir.model.fields,field_description:kardex.field_report_kardex__display_name
+#: model:ir.model.fields,field_description:kardex.field_stock_init_kardex__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_report_kardex__kardex_file
+msgid "Download report"
+msgstr "Descargar reporte"
+
+#. module: kardex
+#: model:ir.model.fields.selection,name:kardex.selection__kardex_filter__month__1
+msgid "Enero"
+msgstr ""
+
+#. module: kardex
+#: code:addons/kardex/models/stock_inventory.py:0
+#, python-format
+msgid "Error!"
+msgstr "¡Error!"
+
+#. module: kardex
+#: model_terms:ir.ui.view,arch_db:kardex.view_kardex_form_extended
+msgid "Excel Report file"
+msgstr ""
+
+#. module: kardex
+#: model_terms:ir.ui.view,arch_db:kardex.view_kardex_filter_wizard
+msgid "Export Excel"
+msgstr "Exportar Excel"
+
+#. module: kardex
+#: model:ir.model.fields.selection,name:kardex.selection__kardex_filter__month__2
+msgid "Febrero"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_stock_inventory__date_done
+msgid "Fecha del ajuste"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields,help:kardex.field_stock_inventory__date_done
+msgid ""
+"Fecha referencial para regularizar los movimientos generados por el ajuste "
+"de inventario"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_kardex_filter__id
+#: model:ir.model.fields,field_description:kardex.field_report_kardex__id
+#: model:ir.model.fields,field_description:kardex.field_stock_init_kardex__id
+msgid "ID"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_kardex_filter__include_null_products
+msgid "Incluir saldos nulos"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model,name:kardex.model_stock_inventory
+msgid "Inventory"
+msgstr "Inventario"
+
+#. module: kardex
+#: model:ir.model.fields.selection,name:kardex.selection__kardex_filter__month__7
+msgid "Julio"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields.selection,name:kardex.selection__kardex_filter__month__6
+msgid "Junio"
+msgstr ""
+
+#. module: kardex
+#: model:ir.ui.menu,name:kardex.menu_kardex
+msgid "Kardex"
+msgstr "Kardex"
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_report_kardex__file_name
+msgid "Kardex File"
+msgstr "Archivo kardex"
+
+#. module: kardex
+#: model:ir.actions.act_window,name:kardex.action_kardex_filter
+msgid "Kardex Filter"
+msgstr "Filtro kardex"
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_uom_uom__kardex_code
+msgid "Kardex code"
+msgstr "Código kardex"
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_kardex_filter____last_update
+#: model:ir.model.fields,field_description:kardex.field_report_kardex____last_update
+#: model:ir.model.fields,field_description:kardex.field_stock_init_kardex____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_kardex_filter__write_uid
+#: model:ir.model.fields,field_description:kardex.field_report_kardex__write_uid
+#: model:ir.model.fields,field_description:kardex.field_stock_init_kardex__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_kardex_filter__write_date
+#: model:ir.model.fields,field_description:kardex.field_report_kardex__write_date
+#: model:ir.model.fields,field_description:kardex.field_stock_init_kardex__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields,help:kardex.field_stock_inventory__beginning_balance
+msgid ""
+"Mark this indicator if the current setting is the initial load of product "
+"stocks."
+msgstr ""
+"Marcar este indicador si el ajuste actual es la carga inicial de stocks de "
+"productos. Los valores ingresados en la columna 'Costo Unitario' "
+"actualizarán los costos de los productos sólo si se trata de la Carga "
+"Inicial de Inventarios."
+
+#. module: kardex
+#: model:ir.model.fields.selection,name:kardex.selection__kardex_filter__month__3
+msgid "Marzo"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields.selection,name:kardex.selection__kardex_filter__month__5
+msgid "Mayo"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_kardex_filter__month
+#: model:ir.model.fields,field_description:kardex.field_stock_init_kardex__month
+msgid "Month"
+msgstr "Mes"
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_stock_init_kardex__negative_flow_qty
+msgid "Negative Flow Qty"
+msgstr "Cantidad de Flujo negativa"
+
+#. module: kardex
+#: code:addons/kardex/models/stock_inventory.py:0
+#, python-format
+msgid "No data found"
+msgstr "Datos no encontrados"
+
+#. module: kardex
+#: model:ir.model.fields.selection,name:kardex.selection__kardex_filter__month__11
+msgid "Noviembre"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields.selection,name:kardex.selection__kardex_filter__month__10
+msgid "Octubre"
+msgstr ""
+
+#. module: kardex
+#: code:addons/kardex/models/stock_return_picking.py:0
+#, python-format
+msgid "Please specify at least one non-zero quantity."
+msgstr "Por favor, especifique al menos una cantidad que no sea cero."
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_stock_init_kardex__positive_flow_qty
+msgid "Positive Flow Qty"
+msgstr "Cantidad de Flujo positiva"
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_stock_init_kardex__product_id
+msgid "Product"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model,name:kardex.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de Producto"
+
+#. module: kardex
+#: model:ir.model,name:kardex.model_uom_uom
+msgid "Product Unit of Measure"
+msgstr "Unidad de Medida del Producto"
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_kardex_filter__product_ids
+msgid "Products"
+msgstr "Productos"
+
+#. module: kardex
+#: model:ir.model,name:kardex.model_stock_return_picking
+msgid "Return Picking"
+msgstr "Albarán de devolución"
+
+#. module: kardex
+#: code:addons/kardex/models/stock_return_picking.py:0
+#, python-format
+msgid "Return of %s"
+msgstr "Retorno de %s"
+
+#. module: kardex
+#: model:ir.model.fields.selection,name:kardex.selection__kardex_filter__month__9
+msgid "Septiembre"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields,help:kardex.field_kardex_filter__include_null_products
+msgid ""
+"Si activa esta opción se incluirán en el reporte productos son stock igual "
+"a cero y negativos."
+msgstr ""
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_stock_init_kardex__stock_qty
+msgid "Stock Qty"
+msgstr ""
+
+#. module: kardex
+#: code:addons/kardex/models/stock_inventory.py:0
+#, python-format
+msgid "The next sequence value for the inventory failed."
+msgstr ""
+"Falló la obtención del siguiente valor de la secuencia para el inventario"
+
+#. module: kardex
+#: model:ir.model.constraint,message:kardex.constraint_stock_init_kardex_stock_kdx_period_uniq
+msgid "The stock of a product per store and product has to be unique."
+msgstr ""
+
+#. module: kardex
+#: model:ir.model,name:kardex.model_stock_picking
+msgid "Transfer"
+msgstr "Transferir"
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_product_product__type_existence
+#: model:ir.model.fields,field_description:kardex.field_product_template__type_existence
+msgid "Type of existence"
+msgstr "Tipo de existencia"
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_stock_picking__type_operation
+msgid "Type of operation"
+msgstr "Tipo de operación"
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_stock_init_kardex__warehouse_id
+msgid "Warehouse"
+msgstr "Almacén"
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_kardex_filter__warehouse_ids
+msgid "Warehouses"
+msgstr "Almacén"
+
+#. module: kardex
+#: model:ir.model.fields,field_description:kardex.field_kardex_filter__year
+#: model:ir.model.fields,field_description:kardex.field_stock_init_kardex__year
+msgid "Year"
+msgstr "Año"
+
+#. module: kardex
+#: code:addons/kardex/models/stock_return_picking.py:0
+#, python-format
+msgid ""
+"You have manually created product lines, please delete them to proceed."
+msgstr "Ha creado líneas de productos manualmente, elimínelas para continuar."
+
+#. module: kardex
+#: model:ir.model,name:kardex.model_kardex_filter
+msgid "kardex.filter"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model,name:kardex.model_report_kardex
+msgid "report.kardex"
+msgstr ""
+
+#. module: kardex
+#: model:ir.model,name:kardex.model_stock_init_kardex
+msgid "stock.init.kardex"
+msgstr ""

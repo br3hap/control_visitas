@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_peb_catalogue_01,Peb Catalogue 01,sunat_catalogue.model_peb_catalogue_01,,1,1,1,1
+access_peb_catalogue_05,Peb Catalogue 05,sunat_catalogue.model_peb_catalogue_05,,1,1,1,1
+access_peb_catalogue_09,Peb Catalogue 09,sunat_catalogue.model_peb_catalogue_09,,1,1,1,1
+access_peb_catalogue_10,Peb Catalogue 10,sunat_catalogue.model_peb_catalogue_10,,1,1,1,1
+access_peb_catalogue_12,Peb Catalogue 12,sunat_catalogue.model_peb_catalogue_12,,1,1,1,1
+access_peb_catalogue_51,Peb Catalogue 51,sunat_catalogue.model_peb_catalogue_51,,1,1,1,1
+access_peb_catalogue_07,Peb Catalogue 07,sunat_catalogue.model_peb_catalogue_07,,1,1,1,1
+access_peb_catalogue_20,Peb Catalogue 20,sunat_catalogue.model_peb_catalogue_20,,1,1,1,1
+access_peb_catalogue_18,Peb Catalogue 18,sunat_catalogue.model_peb_catalogue_18,,1,1,1,1
+access_peb_catalogue_21,Peb Catalogue 21,sunat_catalogue.model_peb_catalogue_21,,1,1,1,1
+access_peb_shipping_status_sunat,Peb Shipping Status Sunat,sunat_catalogue.model_peb_shipping_status_sunat,,1,1,1,1

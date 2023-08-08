@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="baja_form_view">
+			<field name="name">baja.form.view</field>
+			<field name="model">bajas</field>
+			<field name="arch" type="xml">
+				<form string="Lows">
+					<group>
+						<!-- <label string="Refund" attrs="{'invisible': ['|',('state','in',('draft','proforma','proforma2')), 
+							('type','&lt;&gt;','out_refund')]}"/> -->
+						<field name="invoice_id" options="{'no_open': True}" />
+						<field name="fecha_emision" />
+						<field name="motivo_baja" />
+						<field name="shipping_status_sunat" invisible="1"/>
+					</group>
+					<footer>
+						<button string='Create and Send' name="button_create_send_low"
+							type="object" class="oe_highlight" />
+						o
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+	</data>
+</odoo>

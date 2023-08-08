@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tabla_bien_servicio,tabla bien servicio,detraccion.model_tabla_bien_servicio,account.group_account_user,1,0,0,0
+access_tabla_operacion_detra,tabla operacion detra,detraccion.model_tabla_operacion_detra,account.group_account_user,1,0,0,0
+access_tabla_pago_dect,tabla pago dect,detraccion.model_tabla_pago_dect,account.group_account_user,1,0,0,0

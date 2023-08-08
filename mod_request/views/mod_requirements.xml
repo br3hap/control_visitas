@@ -1,0 +1,118 @@
+<odoo>
+    <data>
+        <record id="view_requirement_tree" model="ir.ui.view">
+            <field name="name">view.mod.requirements.tree</field>
+            <field name="model">mod.request.requirements</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="mod_request_id" />
+                    <field name="name_requirement" />
+                    <field name="case_requirement" />
+                    <field name="proceedings_requirement" />
+                    <field name="amount_requirement" />
+                    <!-- <field name="amount_total" sum="Total Tax Included" widget="monetary" decoration-bf="1" optional="show"/> -->
+                    <field name="date_request_requirement" />
+                    <field name="court_entity_requirement" />
+                    <field name="ruc_dni_requirement" />
+                    <field name="description_requirement" />
+                    <field name="product_id" domain="[('can_be_expensed','=',True)]" />
+                    <field name="account_move_id"
+                        domain="[('move_type','=','in_invoice'),('state','=','posted'),('amount_residual','!=',0)]" />
+                        <field name='partner_id'
+                        optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_requirement_form" model="ir.ui.view">
+            <field name="name">view.mod.requirements.form</field>
+            <field name="model">mod.request.requirements</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="group">
+                            <group name="group_1">
+                                <field name="state_request" invisible="1" />
+                                <field name="state_request_completed" invisible="1" />
+                                <field name="name_requirement"
+                                    readonly="1" />
+                                <field name="case_requirement"
+                                    attrs="{'readonly':[('state_request','=',True)]}" />
+                                <field name="proceedings_requirement"
+                                    attrs="{'readonly':[('state_request','=',True)]}" />
+                                <field name="product_id" domain="[('can_be_expensed','=',True)]"
+                                    attrs="{'readonly':[('state_request_completed','=',True)]}" />
+                                <field name="account_move_id"
+                                    domain="[('move_type','=','in_invoice'),('state','=','posted'),('amount_residual','!=',0)]"
+                                    attrs="{'readonly':[('state_request_completed','=',True)]}" />
+                                <field name="amount_requirement"
+                                    attrs="{'readonly':[('state_request','=',True)]}" />
+                            </group>
+                            <group name="group_2">
+                                <field name="date_request_requirement"
+                                    attrs="{'readonly':[('state_request','=',True)]}" />
+                                <field name="court_entity_requirement"
+                                    attrs="{'readonly':[('state_request','=',True)]}" />
+                                <field name="ruc_dni_requirement"
+                                    attrs="{'readonly':[('state_request','=',True)]}" />
+                                <field name="description_requirement"
+                                    attrs="{'readonly':[('state_request','=',True)]}" />
+                                <field name='partner_id' optional="hide"/>
+                            </group>
+                        </group>
+                        <group name="group_2">
+                            <field name="json_text"
+                                readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_mod_requirement_filter" model="ir.ui.view">
+            <field name="name">mod.request.search</field>
+            <field name="model">mod.request.requirements</field>
+            <field name="arch" type="xml">
+                <search string="Search Module Requirements">
+                    <field name="mod_request_id" filter_domain="[('mod_request_id', 'ilike', self)]" />
+                    <field name="name_requirement"
+                        filter_domain="[('name_requirement', 'ilike', self)]" />
+                    <field name="case_requirement"
+                        filter_domain="[('case_requirement', 'ilike', self)]" />
+                    <field name="proceedings_requirement"
+                        filter_domain="[('proceedings_requirement', 'ilike', self)]" />
+                    <field name="court_entity_requirement"
+                        filter_domain="[('court_entity_requirement', 'ilike', self)]" />
+                    <field name="ruc_dni_requirement"
+                        filter_domain="[('ruc_dni_requirement', 'ilike', self)]" />
+                    <separator />
+                    <filter string="Date Request Requirement" name="date_request_requirement"
+                        date="date_request_requirement" />
+
+                    <separator />
+                    <group expand="0" name="group_by" string="Group By">
+                        <filter name="mod_request_id"
+                            string="Cod. Request"
+                            domain="[]"
+                            context="{'group_by' : 'mod_request_id'}" />
+
+                        <filter name="ruc_dni_requirement"
+                            string="RUC / DNI"
+                            domain="[]"
+                            context="{'group_by' : 'ruc_dni_requirement'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="mod_request_actions_my_requirements" model="ir.actions.act_window">
+            <field name="name">My Requirements</field>
+            <field name="res_model">mod.request.requirements</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+
+        <menuitem name="My Requirements" id="mod_request.menu_requirements"
+            parent="hr_expense.menu_hr_expense_my_expenses"
+            action="mod_request_actions_my_requirements" />
+    </data>
+</odoo>

@@ -1,0 +1,30 @@
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="mensaje_emergente_view">
+			<field name="name">mensaje.emergente.view</field>
+			<field name="model">mensaje.emergente</field>
+			<field name="arch" type="xml">
+				<form string="Message">
+					<group>
+						<field name="tipo" />
+						<field name="mensaje" />
+						<field name="mensaje_detallado" />
+					</group>
+					<footer>
+						<button string="Close" class="oe_highlight" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="tipo_pago_view">
+			<field name="name">tipo.pago.view</field>
+			<field name="model">tipo.pago</field>
+			<field name="arch" type="xml">
+				<tree string="Tipo Pago">
+					<field name="code" />
+					<field name="description" />
+				</tree>
+			</field>
+		</record>
+	</data>
+</odoo>

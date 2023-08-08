@@ -1,0 +1,183 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* detraction
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-16 20:52+0000\n"
+"PO-Revision-Date: 2020-04-16 20:52+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_account_move__active_round_amount
+msgid "Active Round Amount Detraction"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_account_move__active_detraction
+msgid "Active detraction"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_account_move__amount_detraction
+msgid "Amount Detraction"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_paid_detraction__code
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_service_spot__code
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_type_operation_detraction__code
+msgid "Code"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_paid_detraction__create_uid
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_service_spot__create_uid
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_type_operation_detraction__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_paid_detraction__create_date
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_service_spot__create_date
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_type_operation_detraction__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_account_move__detraction_date
+msgid "Date of Detraction"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_paid_detraction__description
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_service_spot__description
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_type_operation_detraction__description
+msgid "Description"
+msgstr ""
+
+#. module: detraction
+#: model:ir.ui.menu,name:detraction.menu_detraction
+msgid "Detraction"
+msgstr ""
+
+#. module: detraction
+#: model:ir.actions.act_window,name:detraction.action_catalogue_paid_detraction
+#: model:ir.ui.menu,name:detraction.menu_catalogue_paid_detraction
+#: model_terms:ir.ui.view,arch_db:detraction.view_peb_catalogue_paid_detraction_form
+#: model_terms:ir.ui.view,arch_db:detraction.view_peb_catalogue_paid_detraction_tree
+msgid "Detraction Payment Catalog"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_paid_detraction__display_name
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_service_spot__display_name
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_type_operation_detraction__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_paid_detraction__id
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_service_spot__id
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_type_operation_detraction__id
+msgid "ID"
+msgstr ""
+
+#. module: detraction
+#: model_terms:ir.ui.view,arch_db:detraction.view_move_form_inherit
+msgid "Information of Detraction"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model,name:detraction.model_account_move
+msgid "Journal Entries"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_paid_detraction____last_update
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_service_spot____last_update
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_type_operation_detraction____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_paid_detraction__write_uid
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_service_spot__write_uid
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_type_operation_detraction__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_paid_detraction__write_date
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_service_spot__write_date
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_type_operation_detraction__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_account_move__operation_number_detraction
+msgid "Operation Number of Detraction"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_peb_catalogue_service_spot__percentage
+msgid "Percentage"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_account_move__rate_detraction
+msgid "Rate Detraction"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_account_move__service_detraction
+msgid "Service of detraction"
+msgstr ""
+
+#. module: detraction
+#: model:ir.actions.act_window,name:detraction.action_catalogue_service_spot
+#: model:ir.ui.menu,name:detraction.menu_catalogue_service_spot
+#: model_terms:ir.ui.view,arch_db:detraction.view_peb_catalogue_service_spot_form
+#: model_terms:ir.ui.view,arch_db:detraction.view_peb_catalogue_service_spot_tree
+msgid "Spot Service Catalog"
+msgstr ""
+
+#. module: detraction
+#: model:ir.actions.act_window,name:detraction.action_catalogue_type_operation_detraction
+#: model:ir.ui.menu,name:detraction.menu_catalogue_type_operation_detraction
+#: model_terms:ir.ui.view,arch_db:detraction.view_peb_catalogue_type_operation_detraction_form
+#: model_terms:ir.ui.view,arch_db:detraction.view_peb_catalogue_type_operation_detraction_tree
+msgid "Type Operation Detraction"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_account_move__type_operation_detraction
+msgid "Type Operation of Detraction"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model.fields,field_description:detraction.field_account_move__type_paid_detraction
+msgid "Type Paid of Detraction"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model,name:detraction.model_peb_catalogue_paid_detraction
+msgid "peb.catalogue.paid.detraction"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model,name:detraction.model_peb_catalogue_service_spot
+msgid "peb.catalogue.service.spot"
+msgstr ""
+
+#. module: detraction
+#: model:ir.model,name:detraction.model_peb_catalogue_type_operation_detraction
+msgid "peb.catalogue.type.operation.detraction"
+msgstr ""

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odoo_rest_api,odoo.rest.api,model_odoo_rest_api,base.group_user,1,1,1,1
+access_customer_rest_api,customer.rest.api,model_customer_rest_api,base.group_user,1,1,1,1
+access_account_move_rest_api,account.move.rest.api,model_account_move_rest_api,base.group_user,1,1,1,1

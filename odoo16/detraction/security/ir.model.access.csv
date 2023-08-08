@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_peb_catalogue_service_spot,Peb Catalogue Service Spot,detraction.model_peb_catalogue_service_spot,,1,1,1,1
+access_peb_catalogue_type_operation_detraction,Peb Catalogue Type Operation Detraction,detraction.model_peb_catalogue_type_operation_detraction,,1,1,1,1
+access_peb_catalogue_paid_detraction,Peb Catalogue Paid Detraction,detraction.model_peb_catalogue_paid_detraction,,1,1,1,1

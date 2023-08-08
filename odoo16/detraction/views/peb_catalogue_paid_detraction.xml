@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_peb_catalogue_paid_detraction_tree" model="ir.ui.view">
+            <field name="name">peb.catalogue.paid.detraction.tree</field>
+            <field name="model">peb.catalogue.paid.detraction</field>
+            <field name="arch" type="xml">
+                <tree string="Detraction Payment Catalog">
+                    <field name="code"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_peb_catalogue_paid_detraction_form" model="ir.ui.view">
+            <field name="name">peb.catalogue.paid.detraction.form</field>
+            <field name="model">peb.catalogue.paid.detraction</field>
+            <field name="arch" type="xml">
+                <form string="Detraction Payment Catalog">
+                    <group>
+                        <field name="code"/>
+                        <field name="description"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_catalogue_paid_detraction" model="ir.actions.act_window">
+            <field name="name">Detraction Payment Catalog</field>
+            <field name="res_model">peb.catalogue.paid.detraction</field>
+            <field name="view_mode">tree,form</field>
+            <!--<field name="search_view_id" ref="view_currency_search"/>-->
+        </record>
+
+        <menuitem id="menu_catalogue_paid_detraction"
+                  name="Detraction Payment Catalog"
+                  action="action_catalogue_paid_detraction"
+                  parent="detraction.menu_detraction"/>
+
+    </data>
+</odoo>
+

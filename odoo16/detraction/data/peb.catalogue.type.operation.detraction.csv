@@ -1,0 +1,7 @@
+id,code,description
+peb_catag_operation_1,01,Venta de bienes o prestación de servicios.
+peb_catag_operation_2,02,Retiro de bienes
+peb_catag_operation_3,03,Traslados que no son venta
+peb_catag_operation_4,04,Venta a través de la Bolsa de Productos
+peb_catag_operation_5,05,Venta de Bienes exonerados del IGV
+peb_catag_operation_6,09,Pago Ley N° 30737

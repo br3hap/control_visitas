@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+{
+    'name': 'detraccion',
+    'category': 'invoice',
+    'description': 'Modulo de detracciones',
+    'summary': 'Módulo que modifica el reporte de cotización.',
+    'author': 'CONASTEC SRL',
+    'depends': [
+        'base','integracion_EBIS'
+        ],
+    'data': [
+        'data/tabla.bien.servicio.csv',
+        'data/tabla.pago.dect.csv',
+        'view/tablas_detraccion_view.xml',
+        'data/tabla.operacion.detra.csv',
+        'view/account_invoice_detrac_view.xml',
+        'view/campos_detraccion_view.xml',
+        ]
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <!-- Form -->
+        <record id="view_account_journal_inherit" model="ir.ui.view">
+            <field name="name">account.journal.inherit.form</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='bank_account']//field[@name='currency_id']" position="after">
+					<field name="account_receivable_id"/>
+				</xpath>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

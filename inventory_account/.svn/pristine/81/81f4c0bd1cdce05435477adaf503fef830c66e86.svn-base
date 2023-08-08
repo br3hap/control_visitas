@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="invoice_tree_inherit2">
+			<field name="name">account.invoice.tree.inherit2</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="integracion_EBIS.invoice_tree_inherit" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='ind_auto_detrac']" position="replace">
+					<field name="detraccion" />
+				</xpath>
+			</field>
+		</record>
+		
+		
+<!-- 		PARA CLIENTES -->
+		
+		<record model="ir.ui.view" id="invoice_form_inherit2">
+			<field name="name">invoice.form.inherit2</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="integracion_EBIS.invoice_form_inherit" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='ind_auto_detrac']" position="replace">
+					<field name="detraccion" 
+						attrs="{'readonly':[('state','!=','draft')]}"/>
+<!-- 					attrs="{'readonly':[('number','!=',False)]}"/> -->
+					<field name="bien_servicio_detrac"
+							options="{'no_quick_create': true,'no_create_edit' : true,'no_open': True}" 
+							attrs="{'invisible':[('detraccion', '=',False)]}"/>
+				</xpath>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="invoice_form_inherit_detrac">
+			<field name="name">invoice.form.inherit.detrac</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.invoice_form"/>
+			<field name="arch" type="xml">
+				
+				<xpath expr="//field[@name='residual']" position="after">
+					
+					<field name="total_detraccion" widget="monetary" 
+					options="{'currency_field': 'currency_id'}"
+					readonly="1"
+					attrs="{'invisible':[('detraccion', '=',False)]}"/>
+					
+					<field name="tasa_detraccion" widget="monetary" 
+					readonly="1"
+					attrs="{'invisible':[('detraccion', '=',False)]}"/>
+					
+				</xpath>
+				
+				<xpath expr="//field[@name='payment_ids']" position="after">
+					
+					<field name="account_transfer_id"
+					options="{'no_quick_create': true,'no_create_edit' : true}" 
+					readonly="1"
+					attrs="{'invisible':['|',('detraccion', '=',False),('state','=','draft')]}" />
+					
+				</xpath>
+				
+				<xpath expr="//page[@string='Payments']" position="after">
+					<page string="Datos de Detracción">
+						<group>
+							
+							<field name="medio_pago" 
+								options="{'no_quick_create': true,'no_create_edit' : true,'no_open': True}" 
+								attrs="{'required':[('detraccion', '=',True)],'invisible':[('detraccion', '=',False)]}"/>
+						
+							<field name="tipo_operacion_detra"
+									options="{'no_quick_create': true,'no_create_edit' : true,'no_open': True}" 
+									attrs="{'required':[('detraccion', '=',True)],'invisible':[('detraccion', '=',False)]}"/>
+									
+							
+							<field name="fecha_ope_detra" 
+									attrs="{'required':[('detraccion', '=',True)],'invisible':[('detraccion', '=',False)]}"/>
+							
+							<field name="codigo_ope_detra"
+									attrs="{'required':[('detraccion', '=',True)],'invisible':[('detraccion', '=',False)]}"/>
+						
+							<field name="redondear_monto_detra"/>
+						</group>
+                    	
+                    </page>
+				</xpath>
+				
+			</field>
+		</record>
+		
+<!-- 		PARA PROVEEDORES -->
+		
+		<record model="ir.ui.view" id="invoice_supplier_form_inherit">
+			<field name="name">invoice.supplier.form.inherit2</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.invoice_supplier_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='supplier_invoice_number']" position="after">
+					<field name="detraccion" 
+						attrs="{'readonly':[('state','!=','draft')]}"/>
+<!-- 					attrs="{'readonly':[('number','!=',False)]}"/> -->
+
+					<field name="bien_servicio_detrac"
+							options="{'no_quick_create': true,'no_create_edit' : true,'no_open': True}" 
+							attrs="{'invisible':[('detraccion', '=',False)]}"/>
+					
+				</xpath>
+				
+				<xpath expr="//field[@name='residual']" position="after">
+					
+					<field name="total_detraccion" widget="monetary" 
+					options="{'currency_field': 'currency_id'}"
+					readonly="1"
+					attrs="{'invisible':[('detraccion', '=',False)]}"/>
+					
+					<field name="tasa_detraccion" widget="monetary" 
+					readonly="1"
+					attrs="{'invisible':[('detraccion', '=',False)]}"/>
+					
+				</xpath>
+				
+				<xpath expr="//field[@name='payment_ids']" position="after">
+					
+					<field name="account_transfer_id"
+					options="{'no_quick_create': true,'no_create_edit' : true}" 
+					readonly="1"
+					attrs="{'invisible':['|',('detraccion', '=',False),('state','=','draft')]}" />
+					
+				</xpath>
+				
+				<xpath expr="//page[@string='Payments']" position="after">
+					
+					<page string="Datos de Detracción">
+						<group>
+							<field name="medio_pago" 
+								options="{'no_quick_create': true,'no_create_edit' : true,'no_open': True}" 
+								attrs="{'required':[('detraccion', '=',True)],'invisible':[('detraccion', '=',False)]}"/>
+						
+							<field name="tipo_operacion_detra"
+									options="{'no_quick_create': true,'no_create_edit' : true,'no_open': True}" 
+									attrs="{'required':[('detraccion', '=',True)],'invisible':[('detraccion', '=',False)]}"/>
+									
+							
+							<field name="fecha_ope_detra" 
+									attrs="{'required':[('detraccion', '=',True)],'invisible':[('detraccion', '=',False)]}"/>
+							
+							<field name="codigo_ope_detra"
+									attrs="{'required':[('detraccion', '=',True)],'invisible':[('detraccion', '=',False)]}"/>
+						
+							<field name="redondear_monto_detra"/>
+						</group>
+                    </page>
+                </xpath>
+               </field>
+		</record>
+	</data>
+</openerp>

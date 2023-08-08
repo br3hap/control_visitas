@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		 <record id="tabla_detraccion_tree" model="ir.ui.view">
+            <field name="name">tabla.detraccion.tree</field>
+            <field name="model">tabla.bien.servicio</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="descripcion"/>
+                    <field name="porcentaje"/>
+                    <field name="codigo" groups="base.group_user"/>
+                </tree>
+            </field>
+        </record>
+        
+		<record id="tabla_detraccion_form" model="ir.ui.view">
+            <field name="name">tabla.detraccion.form</field>
+            <field name="model">tabla.bien.servicio</field>
+            <field name="arch" type="xml">
+                <form>
+                	<group>
+                	 	<field name="descripcion"/>
+	                    <field name="porcentaje"/>
+	                    <field name="codigo" groups="base.group_user"/>
+                	</group>
+                    
+                </form>
+            </field>
+        </record>
+            
+        <record id="action_bien_servicio_tree" model="ir.actions.act_window">
+            <field name="name">Tabla Bien o Servicio</field>
+            <field name="res_model">tabla.bien.servicio</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="tabla_detraccion_tree"/>
+        </record>
+        <menuitem id="menu_bien_servicio_detra"
+        	name="Bienes o Servicios Detracción"
+        	sequence="2"
+            parent="integracion_EBIS.menu_facturacion_config"            
+            action="action_bien_servicio_tree"/>
+	</data>
+</openerp>

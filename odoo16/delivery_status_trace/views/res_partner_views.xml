@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- res.partner action window -->
+    <record id="res_partner_inherit_delivery_view_action" model="ir.actions.act_window">
+        <field name="name">res.partner.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_delivery_company', '=', 1)]</field>
+        <field name="context">{'default_is_delivery_company': True}</field>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p>
+        </field>
+    </record>
+
+
+    <!-- res.partner inherit form view -->
+    <record id="res_partner_inherit_delivery_view_form" model="ir.ui.view">
+        <field name="name">res.partner.inherit.view.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="is_delivery_company"/>
+            </xpath>
+            
+            <xpath expr="//notebook/page[last()]" position="after">
+                <page name="Carriers" string="Carriers" attrs="{'invisible': [('is_delivery_company','=',False)]}">
+                    <field name="carrier_ids">
+                        <tree>
+                            <field name="name"/>
+                            <field name="vat"/>
+                            <field name="lincence_file"/>
+                        </tree>
+
+                    </field>
+                </page>
+                <page name="Vehicles" string="Vehicles" attrs="{'invisible': [('is_delivery_company','=',False)]}">
+                    <field name="vehicle_ids">
+                        <tree>
+                            <field name="plate_number"/>
+                            <field name="brand"/>
+                            <field name="manufacture_year"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+
+    <menuitem
+    id="shipping_company_menu"
+    name="Shipping Company"
+    action="res_partner_inherit_delivery_view_action"
+    groups="stock.group_stock_manager"
+    parent="delivery_status_menu"
+    sequence="1"/>
+</odoo>

@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_logs_comprobante,Logs Comprobante,electronic_invoice.model_logs_comprobante,,1,1,1,1
+access_bajas,Bajas,electronic_invoice.model_bajas,,1,1,1,1
+access_logs_baja,Logs Baja,electronic_invoice.model_logs_baja,,1,1,1,1
+access_tipo_pago,Tipo Pago,electronic_invoice.model_tipo_pago,,1,1,1,1
+access_documento_relacionados,Documento Relacionados,electronic_invoice.model_documento_relacionados,,1,1,1,1
+access_cuotas,Cuotas,electronic_invoice.model_cuotas,,1,1,1,1
+access_mensaje_emergente,mensaje.emergente,electronic_invoice.model_mensaje_emergente,,1,1,1,1
+access_recibir_comprobante_pago_respuesta,recibir.comprobante.pago.respuesta,electronic_invoice.model_recibir_comprobante_pago_respuesta,,1,1,1,1
+access_impresion,impresion,electronic_invoice.model_impresion,,1,1,1,1

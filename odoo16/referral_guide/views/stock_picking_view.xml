@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+		<record id="picking_tree_guia_remision_inherit" model="ir.ui.view">
+			<field name="name">stock.picking.tree.guia.remision.inherit</field>
+			<field name="model">stock.picking</field>
+			<field name="inherit_id" ref="stock.vpicktree" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='state']" position="after">
+					<field name='shipping_status_sunat' />
+				</xpath>
+			</field>
+		</record>
+
+		<record id="picking_form_guia_remision_inherit" model="ir.ui.view">
+			<field name="name">stock.picking.form.guia.remision.inherit</field>
+			<field name="model">stock.picking</field>
+			<field name="inherit_id" ref="stock.view_picking_form" />
+			<field name="arch" type="xml">
+                <xpath expr="//button[@name='do_unreserve']" position="after">
+					<field name='has_related_doc' attrs="{'invisible': True}" />
+					<field name='status_sunat_code' attrs="{'invisible': True}" />
+					<field name='not_active_get_print_guia' invisible="1"/>
+					<button name="button_generate_despatch" string="Generar Guía"
+							attrs="{'invisible':['|','|',('state', '!=', 'done'),('status_sunat_code','not in',[False, '1', '2', '4','8']),('has_related_doc', '!=', True)]}"
+							class="oe_highlight" type="object" groups="base.group_user" />
+					<button name="button_generate_despatch" string="Generar Guía"
+							attrs="{'invisible': ['|','|',('state', '!=', 'done'), ('status_sunat_code','not in',[False, '1', '2', '4', '8']), ('has_related_doc', '!=', False)]}"
+							type="object" groups="base.group_user"
+							class="oe_highlight" confirm="La Guía de Remisión no contiene 'Documento Relacionado'. ¿Desea continuar?" />
+					<button name="button_print_despatch" string="Obtener Comprobante EBIS"
+							attrs="{'invisible': ['|','|',('state', '!=', 'done'), ('status_sunat_code','not in',['3', '5','6', '9']),('not_active_get_print_guia', '=', True)]}"
+							class="oe_highlight" type="object" groups="base.group_user" />
+					<button name="button_listado_logs" string="Listado de Logs"
+							attrs="{'invisible': ['|', ('state', '!=', 'done'), ('status_sunat_code','=',False)]}"
+							type="object" groups="base.group_user"/>
+				</xpath>
+
+				<xpath expr="//field[@name='partner_id']" position="after">
+					<field name='referencia'/>
+					<field name='orden_compra'/>
+
+					<field name='number_sunat'
+						attrs="{'invisible': [('picking_type_code', 'not in' ,['outgoing','internal'])], 'readonly': True}"
+						options="{'no_create': True, 'no_open': True}" />
+					<field name='shipping_status_sunat'
+						attrs="{'invisible': ['|', '|', ('picking_type_code', 'not in', ['outgoing','internal']), ('state', '!=', 'done'), ('shipping_status_sunat', '=', False)]}"
+						options="{'no_create': True, 'no_open': True}" />					
+					
+				</xpath>
+				
+				<xpath expr="//field[@name='origin']" position="after">
+					<!--<field name='create_uid' readonly='1'></field>-->
+					<field name='related_doc'
+						attrs="{'invisible': [('related_doc', '=', '')], 'readonly': True}" />
+					<field name="file_data" readonly="1" filename="field_pdf"/>
+                	<field name="field_pdf" invisible="1"/>
+					
+                	<field name="file_data_xml" readonly="1" filename="field_xml"/>
+                	<field name="field_xml" invisible="1"/>
+					
+				</xpath>
+				<!--
+				<xpath expr="//field[@name='invoice_state']" position="attributes">
+					<attribute name="attrs">{'readonly': [('status_sunat_code','in',['2','3', '5', '7'])]}</attribute>	
+				</xpath>
+				-->
+				<xpath expr="//field[@name='partner_id']" position="after">
+					 <label for="serie_referral_guide" string="Guia Remisión"/>
+                     <div>
+                     	 <field name="serie_referral_guide" attrs="{'readonly': [('state','in',['cancel','done'])]}" nolabel="1" class="oe_inline" placeholder="Serie..." /> -
+                     	 <field name="correlative_referral_guide" attrs="{'readonly': [('state','in',['cancel','done'])]}" nolabel="1" class="oe_inline" placeholder="Correlativo..."/>
+                     </div>
+					 
+				</xpath>
+				<!---->
+                <!--<xpath expr="//page[@name='note']" position="after">
+					<page string="Datos de Transporte">
+						<group>
+							<group>
+								<field name="transfer_reason" options="{'no_create': True, 'no_open': True}" 
+										attrs="{'readonly': [('status_sunat_code','in',['2','3', '5', '7'])]}" />
+								<field name="fecha_traslado_valida" attrs="{'invisible': True}"/>
+								<field name="fecha_traslado" 
+										attrs="{'invisible': [('cod_transfer_reason', 'not in', ('01','02','04','08','09','13','14','18','19'))],'required': [('cod_transfer_reason', 'in', ('01','02','04','08','09','13','14','18','19')),('status_sunat_code','not in',['2','3', '5', '6','7'])], 'readonly': [('status_sunat_code','in',['2','3', '5', '6','7'])]}" />
+								<label string="Fecha de Traslado debe ser mayor o igual a la fecha de hoy" for="fecha_traslado_valida" attrs="{'invisible': [('fecha_traslado_valida', '!=', True)]}" style="color:Red;"/>
+								<field name="cod_transfer_reason" attrs="{'invisible': True}" />
+								<field name="num_doc_rel_cd" attrs="{'invisible': [('cod_transfer_reason', '!=', '09')],'required': [('cod_transfer_reason', '=', '09')], 'readonly': [('status_sunat_code','in',['2','3', '5', '7'])]}" />
+								<field name="cod_num_doc_rel_cd" attrs="{'invisible': True}"/>
+							</group>
+							<group>
+							</group>
+							<group>
+								<field name="code_type_conveyor" attrs="{'invisible': True}" />
+								<field name="type_conveyor" on_change="onchange_tipo_transp(type_conveyor)"
+											options="{'no_create': True, 'no_open': True}" attrs="{'readonly': [('status_sunat_code','in',['2', '3', '5', '7'])]}" />
+							</group>
+							<group>
+								<field name="ind_transb_prog" attrs="{'readonly': [('status_sunat_code','in',['2', '3', '5', '7'])]}" />
+							</group>
+							<group string="Datos del Transportista"
+									attrs="{'invisible': [('code_type_conveyor', '=', False)]}">
+								<field name="type_doc_conveyor"
+										attrs="{'required': [('code_type_conveyor', '!=', False)], 'readonly': [('status_sunat_code','in',['2', '3', '5', '7'])]}"
+								<field name="doc_number_conveyor"
+										attrs="{'required': [('code_type_conveyor', '!=', False)], 'readonly': [('status_sunat_code','in',['2', '3', '5', '7'])]}" />
+								<field name="name_conveyor"
+										attrs="{'invisible': [('code_type_conveyor', 'not in', ('01','02'))], 'required': [('code_type_conveyor', '=', '01')], 'readonly': [('status_sunat_code','in',['2', '3', '5', '7'])]}" />
+							</group>
+							<group string="Datos del Vehículo"
+								attrs="{'invisible': [('code_type_conveyor', '!=', '02')]}">
+								<field name="register_car_number"
+										attrs="{'required': [('code_type_conveyor', '=', '02')], 'readonly': [('status_sunat_code','in',['2', '3', '5', '7'])]}" />
+							</group>
+						</group>
+					</page>
+				</xpath>-->
+            </field>
+		</record>
+
+		<record id="view_picking_delivery_trace_form_inherit" model="ir.ui.view">
+			<field name="name">view.picking.delivery.trace.form.inherit</field>
+			<field name="model">stock.picking</field>
+			<field name="inherit_id" ref="delivery_status_trace.view_picking_delivery_trace_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//group[@name='transport_data']" position='before'>
+					<group string="Datos de Guia de Remisión Electonica." attrs="{'invisible': [('b_allow_tracking','=',False)] }">
+						<field name="transfer_reason" options="{'no_create': True, 'no_open': True}" 
+								attrs="{'readonly': [('status_sunat_code','in',['2','3', '5', '7'])]}" />
+						<field name="fecha_traslado_valida" attrs="{'invisible': True}"/>
+						<field name="fecha_traslado" 
+								attrs="{'invisible': [('cod_transfer_reason', 'not in', ('01','02','04','08','09','13','14','18','19'))],'required': [('cod_transfer_reason', 'in', ('01','02','04','08','09','13','14','18','19')),('status_sunat_code','not in',['2','3', '5', '6','7'])], 'readonly': [('status_sunat_code','in',['2','3', '5', '6','7'])]}" />
+						<label string="Fecha de Traslado debe ser mayor o igual a la fecha de hoy" for="fecha_traslado_valida" attrs="{'invisible': [('fecha_traslado_valida', '!=', True)]}" style="color:Red;"/>
+						<field name="cod_transfer_reason" attrs="{'invisible': True}" />
+						<field name="num_doc_rel_cd" attrs="{'invisible': [('cod_transfer_reason', '!=', '09')],'required': [('cod_transfer_reason', '=', '09')], 'readonly': [('status_sunat_code','in',['2','3', '5', '7'])]}" />
+						<field name="cod_num_doc_rel_cd" attrs="{'invisible': True}"/>
+						<field name="code_type_conveyor" attrs="{'invisible': True}" />
+						<field name="type_conveyor" on_change="onchange_tipo_transp(type_conveyor)"
+									options="{'no_create': True, 'no_open': True}" attrs="{'readonly': [('status_sunat_code','in',['2', '3', '5', '7'])]}" />
+						<field name="ind_transb_prog" attrs="{'readonly': [('status_sunat_code','in',['2', '3', '5', '7'])]}" />
+					</group>
+				</xpath>
+
+            </field>
+		</record>
+    </data>
+</odoo>

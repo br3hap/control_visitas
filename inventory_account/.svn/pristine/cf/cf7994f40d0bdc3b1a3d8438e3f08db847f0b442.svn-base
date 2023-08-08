@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_template_property_form_detrac">
+			<field name="name">view.template.property.form.detrac</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="account.product_template_form_view"/>
+			<field name="arch" type="xml">
+				<xpath expr="//group[@name='properties']" position="before">
+					<group>
+						<field name="bien_servicio_detrac" 
+							options="{'no_quick_create': true,'no_create_edit' : true,'no_open': True}"/>
+					</group>
+				</xpath>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_category_property_form_detrac">
+			<field name="name">view.category.property.form.detrac</field>
+			<field name="model">product.category</field>
+			<field name="inherit_id" ref="stock_account.view_category_property_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//group[@name='account_stock_property']" position="after">
+					<group name="account_stock_property" string="Datos SUNAT" colspan="2">
+                            <field name="bien_servicio_detrac" 
+							options="{'no_quick_create': true,'no_create_edit' : true,'no_open': True}"/>
+                    </group>
+				</xpath>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_account_journal_form_detrac">
+			<field name="name">view.account.journal.form.detrac</field>
+			<field name="model">account.journal</field>
+			<field name="inherit_id" ref="integracion_EBIS.view_account_journal_form_inherit"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='tipo_doc_sunat']" position="after">
+                            <field name="detraccion"/>
+				</xpath>
+			</field>
+		</record>
+		
+		
+	</data>
+</openerp>

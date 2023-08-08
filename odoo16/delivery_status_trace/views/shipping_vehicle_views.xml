@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- shipping.vehicle action window -->
+    <record id="shipping_vehicle_view_action" model="ir.actions.act_window">
+        <field name="name">Shipping Vehicle</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">shipping.vehicle</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p>
+        </field>
+    </record>
+
+    <!-- shipping.vehicle tree view -->
+    <record id="shipping_vehicle_view_tree" model="ir.ui.view">
+        <field name="name">Shipping Vehicle</field>
+        <field name="model">shipping.vehicle</field>
+        <field name="arch" type="xml">
+            <tree>
+               <field name="plate_number"/>
+               <field name="brand"/>
+               <field name="manufacture_year"/>
+               <field name="partner_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- shipping.vehicle form view -->
+    <record id="shipping_vehicle_view_form" model="ir.ui.view">
+        <field name="name">Shipping Vehicle Form</field>
+        <field name="model">shipping.vehicle</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group string="Vehicle Information">
+                        <!-- Add your fields here -->
+                        <field name="plate_number"/>
+                        <field name="brand"/>
+                        <field name="manufacture_year"/>
+                        <field name="partner_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <menuitem
+    id="shipping_vehicle_menu"
+    name="Shipping Vehicles"
+    action="shipping_vehicle_view_action"
+    groups="stock.group_stock_manager"
+    parent="delivery_status_menu"
+    sequence="2"/>
+
+
+
+</odoo>

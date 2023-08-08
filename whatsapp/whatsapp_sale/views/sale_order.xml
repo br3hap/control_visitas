@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_whatsapp_sale" model="ir.ui.view">
+        <field name="name">sale.order.whatsapp.sale</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+        	<xpath expr="//button[@name='action_quotation_send'][1]" position="after">
+                <field name="enable_whatsapp" invisible="1"/>
+                <button 
+                    name="whatsapp_send_order"
+                    type="object"
+                    icon="fa-whatsapp"
+                    string="  Send By whatsapp"
+                    class="btn-primary"
+                    title="Send By whatsapp"
+                    attrs="{'invisible': [('enable_whatsapp', '=', False)]}"/>
+            </xpath>
+            <!-- states="draft" -->
+            <!-- states="approved,to_confirm,sale" -->
+        </field>
+    </record>
+
+</odoo>

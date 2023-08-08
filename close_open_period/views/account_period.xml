@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--MANTENIMIENTO DE PERIODOS-->
+        <record id="view_account_period_tree" model="ir.ui.view">
+            <field name="name">account.period.tree</field>
+            <field name="model">account.period</field>
+            <field name="arch" type="xml">
+                <tree string="Account Period">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="date_start"/>
+                    <field name="date_stop"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_account_period_form" model="ir.ui.view">
+            <field name="name">account.period.form</field>
+            <field name="model">account.period</field>
+            <field name="arch" type="xml">
+                <form string="Account Period">
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="date_start"/>
+                        <field name="date_stop"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_account_period" model="ir.actions.act_window">
+            <field name="name">Account Period</field>
+            <field name="res_model">account.period</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_account_period_form"
+                  name="Account Period"
+                  action="action_account_period"
+                  parent="account_period.menu_account_period"/>
+        
+        <!---->
+
+        <!--MANTENIMIENTO DE CONFIGURACION DE PERIODOS-->
+
+        <record id="view_masive_creation_period" model="ir.ui.view">
+            <field name="name">Creación masiva de Periodos</field>
+            <field name="model">masive.creation.period</field>
+            <field name="arch" type="xml">
+                <form string="Creación masiva de Periodos">
+                    <group col="2">
+                        <field name="fiscal_year"/>
+                    </group>
+                    <footer>
+                        <button name="ejecutar" type="object" string="Ejecutar" class="oe_highlight"/>
+                        o
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_masive_creation_period" model="ir.actions.act_window">
+            <field name="name">Creación masiva de Periodos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">masive.creation.period</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_masive_creation_period"
+                  name="Creación masiva de periodos"
+                  action="action_masive_creation_period"
+                  parent="account_period.menu_account_period"/>
+        
+        <!---->
+
+    </data>
+</odoo>
+

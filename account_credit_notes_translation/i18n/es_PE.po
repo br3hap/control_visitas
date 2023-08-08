@@ -1,0 +1,138 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_credit_notes_translation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20201009\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-23 21:24+0000\n"
+"PO-Revision-Date: 2021-09-23 16:29-0500\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.1\n"
+"Last-Translator: \n"
+"Language: es_PE\n"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Document Type"
+msgstr "Tipo de Documento"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Due Date"
+msgstr "Fecha vencimiento"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Future Activities"
+msgstr ""
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Group By"
+msgstr ""
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "In Payment"
+msgstr "En proceso de pago"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Invoice Date"
+msgstr "Fecha factura"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Late Activities"
+msgstr ""
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "My Invoices"
+msgstr "Mis facturas"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Not Paid"
+msgstr "No pagadas"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Overdue"
+msgstr "Vencidas"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Overdue invoices, maturity date passed"
+msgstr ""
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Paid"
+msgstr "Pagado"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Period"
+msgstr "Período"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Posted"
+msgstr "Publicado"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Sales Team"
+msgstr "Equipo de Ventas"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Salesperson"
+msgstr "Vendedor"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Search Invoice"
+msgstr ""
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Show all records which has next action date is before today"
+msgstr "Mostrar todos los registros cuya próxima fecha de acción sea anterior a hoy"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Status"
+msgstr "Estado"
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_filter_invoice_refund
+msgid "Today Activities"
+msgstr ""
+
+#. module: account_credit_notes_translation
+#: model_terms:ir.ui.view,arch_db:account_credit_notes_translation.view_account_invoice_today_filter_inherited
+msgid "Today Invoices"
+msgstr "Facturas de hoy"

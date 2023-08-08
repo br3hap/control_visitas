@@ -1,0 +1,496 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* whatsapp
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-01 21:46+0000\n"
+"PO-Revision-Date: 2023-06-01 17:07-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_PE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.3.1\n"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "%s%s"
+msgstr ""
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "*%s*%s\n"
+msgstr ""
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "*DETAIL* %s\n"
+msgstr "*DETALLE* %s\n"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp/whatsapp/models/whatsapp_send_message.py:0
+#, python-format
+msgid "*affair:* *%s*%s"
+msgstr "*Asunto:* *%s*%s"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp/whatsapp/models/whatsapp_send_message.py:0
+#, python-format
+msgid "*note:* "
+msgstr "*Nota:*"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp_invoice/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp_sale/models/whatsapp_send_message.py:0
+#, python-format
+msgid "<br><br>Note: %s"
+msgstr "<br><br>Nota: %s"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp/whatsapp/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp/whatsapp_crm/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp/whatsapp_invoice/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp_crm/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp_invoice/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp_sale/models/whatsapp_send_message.py:0
+#, python-format
+msgid "<strong>Sending By WhatsApp:</strong><br>"
+msgstr "<strong>Enviado por WhatsApp:</strong><br>"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "Amount Total: %s %s"
+msgstr "Monto Total: %s %s"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "Amount Total: %s*%s %s*"
+msgstr "Monto Total: %s*%s %s*"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "Amount: %s %s %s"
+msgstr "Cantidad: %s %s %s"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "Amount: %s*%s %s* %s\n"
+msgstr "Cantidad: %s*%s %s* %s\n"
+
+#. module: whatsapp
+#: model_terms:ir.ui.view,arch_db:whatsapp.whatsapp_send_msg_wizard
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "Cant:%s  P.unit:%s%s  Total:%s%s%s"
+msgstr ""
+
+#. module: whatsapp
+#: model:ir.model,name:whatsapp.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
+
+#. module: whatsapp
+#: model:ir.model,name:whatsapp.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "DETAIL%s"
+msgstr "DETALLE %s"
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: whatsapp
+#: model_terms:ir.ui.view,arch_db:whatsapp.res_config_settings_view_form_whatsapp
+msgid "Enable send message to whatsapp."
+msgstr "Habilita el envío de mensaje a WhatsApp."
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid ""
+"Hello *%s* %s\n"
+"\n"
+msgstr ""
+"Hola *%s* %s\n"
+"\n"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "Hello, %s%s%s"
+msgstr "Hola, %s%s%s"
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#, python-format
+msgid "Invoice %s"
+msgstr "Factura %s"
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__mobile
+msgid "Mobile"
+msgstr "Número"
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__object_origin
+msgid "Object Origin"
+msgstr ""
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#, python-format
+msgid "Order %s"
+msgstr "Pedido %s"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "Quotation %s"
+msgstr "Cotización %s"
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__user_id
+msgid "Recipient"
+msgstr "Socio"
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__res_id
+msgid "Res"
+msgstr ""
+
+#. module: whatsapp
+#: model_terms:ir.ui.view,arch_db:whatsapp.whatsapp_send_msg_wizard
+msgid "Send"
+msgstr "Enviar"
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__show_note
+msgid "Show Note"
+msgstr "Mostrar Mota"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "Tax: %s %s %s"
+msgstr "Impuesto: %s %s %s"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "Tax: %s*%s %s* %s\n"
+msgstr "Impuesto: %s*%s %s* %s\n"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "The order has no products."
+msgstr "El pedido no tiene productos."
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_res_config_settings__whatsapp_api_url
+msgid "Url"
+msgstr ""
+
+#. module: whatsapp
+#: model_terms:ir.ui.view,arch_db:whatsapp.whatsapp_send_msg_wizard
+msgid "WhatsApp Message"
+msgstr "Mensaje de WhatsApp"
+
+#. module: whatsapp
+#: model_terms:ir.ui.view,arch_db:whatsapp.whatsapp_send_msg_wizard
+msgid "Whatsapp"
+msgstr ""
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/models/res_partner.py:0
+#: code:addons/whatsapp/whatsapp/models/res_partner.py:0
+#: code:addons/whatsapp/whatsapp_crm/models/crm_lead.py:0
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_crm/models/crm_lead.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#: model_terms:ir.ui.view,arch_db:whatsapp.view_partner_form_wedd_inherit
+#, python-format
+msgid "Whatsapp Message"
+msgstr "Mensaje de WhatsApp"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#, python-format
+msgid "Your invoice %s%s"
+msgstr "Su factura %s%s"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#, python-format
+msgid "Your invoice *%s* %s%s\n"
+msgstr "Su factura *%s* %s%s\n"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#, python-format
+msgid "Your order %s%s"
+msgstr "Su Pedido %s%s"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#, python-format
+msgid "Your order *%s* %s%s\n"
+msgstr "Su pedido *%s* %s%s\n"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "Your quotation %s%s"
+msgstr "Su Cotización %s%s"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "Your quotation *%s* %s%s\n"
+msgstr "Su Cotización *%s* %s%s\n"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "_Cant:_  %s%s_P.unit:_ %s%s%s_Total:_ %s%s%s\n"
+msgstr ""
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__affair
+msgid "affair"
+msgstr "Asunto"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp/whatsapp/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp/whatsapp_crm/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp/whatsapp_invoice/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp_crm/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp_invoice/models/whatsapp_send_message.py:0
+#: code:addons/whatsapp_sale/models/whatsapp_send_message.py:0
+#, python-format
+msgid "affair: %s%s"
+msgstr "Asunto: %s%s"
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_res_config_settings__whatsapp_enable
+#: model:ir.model.fields,field_description:whatsapp.field_res_partner__enable_whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_res_users__enable_whatsapp
+msgid "enable whatsapp"
+msgstr "Habilitar whatsapp"
+
+#. module: whatsapp
+#. odoo-python
+#: code:addons/whatsapp/models/res_partner.py:0
+#: code:addons/whatsapp/whatsapp/models/res_partner.py:0
+#: code:addons/whatsapp/whatsapp_crm/models/crm_lead.py:0
+#: code:addons/whatsapp/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp/whatsapp_sale/models/sale_order.py:0
+#: code:addons/whatsapp_crm/models/crm_lead.py:0
+#: code:addons/whatsapp_invoice/models/account_move.py:0
+#: code:addons/whatsapp_order/models/pos_order.py:0
+#: code:addons/whatsapp_sale/models/sale_order.py:0
+#, python-format
+msgid "first enter the partner mobile number."
+msgstr "Primero ingrese el número de teléfono móvil del socio."
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__message
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__message_history
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__message_wsp
+#: model_terms:ir.ui.view,arch_db:whatsapp.whatsapp_send_msg_wizard
+msgid "message"
+msgstr "Mensaje"
+
+#. module: whatsapp
+#: model:ir.model.fields,field_description:whatsapp.field_whatsapp_message_wizard__note
+msgid "note"
+msgstr "Nota"
+
+#. module: whatsapp
+#: model_terms:ir.ui.view,arch_db:whatsapp.res_config_settings_view_form_whatsapp
+msgid "whatsapp"
+msgstr ""
+
+#. module: whatsapp
+#: model:ir.model,name:whatsapp.model_whatsapp_message_wizard
+msgid "whatsapp.message.wizard"
+msgstr ""

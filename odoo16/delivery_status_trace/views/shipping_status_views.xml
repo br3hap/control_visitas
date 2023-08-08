@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- shipping.status action window -->
+    <record id="shipping_status_view_action" model="ir.actions.act_window">
+        <field name="name">shipping.status.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">shipping.status</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p>
+        </field>
+    </record>
+
+
+    <!-- shipping.status tree view -->
+    <record id="shipping_status_view_tree" model="ir.ui.view">
+        <field name="name">shipping.status.view.tree</field>
+        <field name="model">shipping.status</field>
+        <field name="arch" type="xml">
+            <tree editable='bottom'>
+                <field name="sequence" widget="handle"/>
+               <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem
+        id="delivery_status_menu"
+        name="Tracking Settings"
+        groups="stock.group_stock_manager"
+        parent="stock.menu_stock_config_settings"
+        sequence="10"/>
+
+    <menuitem
+        id="shipping_status_menu"
+        name="Tracking States"
+        action="shipping_status_view_action"
+        parent="delivery_status_menu"
+        groups="stock.group_stock_manager"
+        sequence="10"/>
+
+
+</odoo>

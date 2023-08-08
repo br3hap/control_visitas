@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+
+        <record id="view_account_journal_tree_inherit" model="ir.ui.view">
+            <field name="name">view.account.journal.tree.inherit</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='type']" position="after">
+                    <field name="active_ecletronic" optional="1"/>
+                    <field name="is_contg" optional="1"/>
+                    <field name="sunat_document_type" optional="1"/>
+                    <field name="almacen" optional="1"/>
+                </xpath>
+                
+            </field>
+        </record>
+
+        <record id="view_account_journal_form_inherit" model="ir.ui.view">
+            <field name="name">view.account.journal.form.inherit</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='type']" position="after">
+
+                    <field name="sunat_document_type" 
+                    options="{'no_quick_create': true,'no_create_edit' : true,'no_open': True}"/>
+
+                    <field name="almacen" 
+                    options="{'no_quick_create': true,'no_create_edit' : true,'no_open': True}"/>
+                
+                </xpath>
+
+                <xpath expr="//field[@name='refund_sequence']" position="after">
+
+                    <field name="sunat_document_type_related" 
+                    options="{'no_quick_create': true,'no_create_edit' : true,'no_open': True}"/>
+                
+                </xpath>
+
+                <xpath expr="//field[@name='currency_id']" position="after">
+
+                    <field name="active_ecletronic"/>
+                    <field name="is_contg"/>
+                    
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

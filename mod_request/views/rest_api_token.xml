@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="rest_api_token_view_form" model="ir.ui.view">
+        <field name="name">rest.api.token.view.form</field>
+        <field name="model">rest.api.token</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="account_token" />
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="rest_api_token_view_tree" model="ir.ui.view">
+        <field name="name">rest.api.token.view.tree</field>
+        <field name="model">rest.api.token</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="account_token" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="rest_api_url_view_form" model="ir.ui.view">
+        <field name="name">rest.api.url.view.form</field>
+        <field name="model">rest.api.url</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="url" />
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="rest_api_url_view_tree" model="ir.ui.view">
+        <field name="name">rest.api.url.view.tree</field>
+        <field name="model">rest.api.url</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="url" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="rest_api_token_action" model="ir.actions.act_window">
+        <field name="name">Token Api</field>
+        <field name="res_model">rest.api.token</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="rest_api_url_action" model="ir.actions.act_window">
+        <field name="name">Url</field>
+        <field name="res_model">rest.api.url</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="rest_api_token_root"
+        name="Token Rest Api"
+        action="rest_api_token_action"
+        sequence="10"
+        groups="mod_request.group_api_odoo" />
+    <menuitem
+        id="mod_request_menu_parent"
+        name="Api"
+        parent="rest_api_token_root"
+        sequence="1" />
+    <menuitem
+        id="odoo_rest_api_menu"
+        name="Token Api"
+        action="rest_api_token_action"
+        parent="mod_request_menu_parent"
+        sequence="1" />
+    <menuitem
+        id="odoo_rest_api_url_menu"
+        name="Url"
+        action="rest_api_url_action"
+        parent="mod_request_menu_parent"
+        sequence="1" />
+</odoo>

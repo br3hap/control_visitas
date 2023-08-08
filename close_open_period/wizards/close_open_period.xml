@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="close_open_period_form_view">
+        <field name="name">close.open.period.form</field>
+        <field name="model">close.open.period</field>
+        <field name="arch" type="xml">
+            <form>
+                <header />
+                <sheet>
+                    <group>
+                        <field
+                            name="company_id"
+                            options="{'no_create': True}"
+                            groups="base.group_multi_company"
+                        />
+                        <field name="period_ini"
+                         style="width: 40%"
+                        options="{'no_create': True}"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button
+                        string="Cerrar"
+                        name="close"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button
+                        string="Abrir"
+                        name="open"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="close_open_period_act_window">
+        <field name="name">Cerrar/Abrir Periodo</field>
+        <field name="res_model">close.open.period</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem
+            name="Cerrar/Abrir Período"
+            id="account_update_lock_to_period"
+            parent="account.menu_finance_entries"
+            action="close_open_period.close_open_period_act_window"
+            groups="close_open_period.group_user_close_open_period"/>
+</odoo>

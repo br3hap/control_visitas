@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="logs_guia_remision_tree_view">
+			<field name="name">logs.guia.remision.tree.view</field>
+			<field name="model">logs.guia.remision</field>
+			<field name="arch" type="xml">
+				<tree string="Logs">
+					<field name="guia_remision_id" invisible="True" />
+					<field name="fecha" />
+					<field name="descripcion" />
+					<field name="estado_ini" />
+					<field name="estado_fin" />
+					<field name="descripcion_detallada" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="action_logs_wizard_view" model="ir.actions.act_window">
+			<field name="name">Listado Logs</field>
+			<field name="res_model">logs.guia.remision</field>
+			<!--<field name="view_type">tree</field>-->
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('guia_remision_id','=', active_id)]</field>
+			<field name="view_id" ref="logs_guia_remision_tree_view"/>
+			<field name="target">new</field>
+		</record>
+	</data>
+</odoo>

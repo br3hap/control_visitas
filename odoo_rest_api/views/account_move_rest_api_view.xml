@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="account_move_rest_api_view_form" model="ir.ui.view">
+        <field name="name">account.move.rest.api.view.form</field>
+        <field name="model">account.move.rest.api</field>
+        <field name="arch" type="xml">
+            <form>
+           
+                <!-- <header>
+                    <button name="payment_api" string="Payment" class="oe_highlight"  type="object"/>
+                    <field name="state" widget="statusbar"  statusbar_colors="{'paid_out':'red'}"/>
+                </header> -->
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="odoo_api_id" readonly="1"/>
+                            <field name="move_id"/>
+                            <field name="payment_id"/>
+                            
+                            
+                        </group> 
+                        <group>
+                            <field name="succes"  readonly="1"/>
+                            <field name="date"  readonly="1"/>
+                            <field name="journal_id"/>
+                            <field name="response"  readonly="1" />
+                            
+                            
+                        </group>                       
+                    </group>
+                   
+                    <notebook>
+                        <page string="Data">
+                            <group>
+                                <field name="data_text" readonly="1"  nolabel="1" style="height: 150px;color:rgba(255, 255, 255, 0.5); background:#212529;font-family: monospace;"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+               
+              
+            </form>
+        </field>
+    </record>
+
+    <record id="account_move_rest_api_view_tree" model="ir.ui.view">
+        <field name="name">account.move.rest.api.view.tree</field>
+        <field name="model">account.move.rest.api</field>
+        <field name="arch" type="xml">
+            <tree default_order='date desc'>
+                <field name="name" />
+                <field name="odoo_api_id"/>
+                <field name="succes" />
+                <!-- <field name="data_text" /> -->
+                <field name="response" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="account_move_rest_api_action" model="ir.actions.act_window">
+        <field name="name">Account Move Api</field>
+        <field name="res_model">account.move.rest.api</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="account_move_rest_api_menu"
+        name="Invoice"
+        parent="odoo_rest_api_menu_parent"
+        action="account_move_rest_api_action"
+        sequence="12"/>
+</odoo>

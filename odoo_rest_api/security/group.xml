@@ -1,0 +1,8 @@
+<odoo>
+
+	<record id="group_api_odoo" model="res.groups">
+		<field name="name">API Odoo</field>
+	</record>
+
+
+</odoo>
