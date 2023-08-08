@@ -137,21 +137,28 @@ class mod_request(models.Model):
 
     #DNINACO
     def action_masive_paid(self):
-        
+        account_pen = int(self.env['ir.config_parameter'].sudo().get_param('mod_request.account_expenses_pen'))
+        account_usd = int(self.env['ir.config_parameter'].sudo().get_param('mod_request.account_expenses_usd'))
+
         amount = 0
         currency_id = False
+        account_id = None
         for rec in self.browse(self._context.get('active_ids')):
             if rec.state != 'pending':
-                raise UserError(_("Solo debe Seleccionar Solicitudes en estado en Proceso"))
+                raise UserError(_("Solo debe Seleccionar Solicitudes en estado Pendiente"))
             if currency_id:
                 if currency_id != rec.currency_id.id:
                     raise UserError(_("Solo debe Seleccionar Solicitudes de una misma Moneda"))
             else:
                 currency_id = rec.currency_id.id
-
+                if rec.currency_id.name == 'PEN':
+                    account_id = account_pen
+                else:
+                    account_id = account_usd
+                    
             amount = amount+rec.amount_compute
         action = self.env["ir.actions.actions"]._for_xml_id("mod_request.mod_request_masive_paid_action")
-        action['context'] = {'default_amount': amount, 'active_domain': self._context.get('active_ids')}
+        action['context'] = {'default_amount': amount,'default_account_id':account_id, 'active_domain': self._context.get('active_ids')}
         action['views'] = [(self.env.ref('mod_request.view_mod_request_masive_paid_form').id, 'form')]
         return action
 
@@ -195,6 +202,7 @@ class mod_request(models.Model):
         expense_sheet_env = self.env['hr.expense.sheet']
         employee_env = self.env['hr.employee']
         hr_expense_env = self.env['hr.expense']
+        is_enable = self.env['ir.config_parameter'].sudo().get_param('mod_request.allow_shortening_processes', default=False)
         
         employe_id = self.seller
         if not employe_id:
@@ -232,6 +240,9 @@ class mod_request(models.Model):
             }
 
             hr_expense_env.create(data_expense)
+            if is_enable:
+                expense_sheet_id.action_submit_sheet()
+                expense_sheet_id.approve_expense_sheets()
 
             
 
@@ -513,25 +524,6 @@ class mod_request(models.Model):
                 up.state = True
 
 
-    # def show_window_checklist_purchased(self):
-    #     values = {
-    #         'id':'mod_request_form_check_list_purchased',
-    #         'name':_('Validate Purchase File'),
-    #         'view_type':'form',
-    #         'view_mode':'form',
-    #         'target':'new',
-    #         'context':{
-    #             'get_cod':self.id,
-    #             'get_observation_purchased':self.observation_purchased,
-    #             'get_checklist_puchased':self.checklist_puchased,
-    #             'get_attach_purchase':self.attach_purchase,
-    #         },
-    #         'res_model':'mod.request.checklist.purchased.wizard',
-    #         'type':'ir.actions.act_window'
-    #     }
-
-    #     return values
-
 
     def show_window_checklist_supported(self):
         values = {
@@ -573,10 +565,17 @@ class mod_request(models.Model):
        if res.type_request == 'administrative':
             requirement_env.create(data_request)
 
-        # if res.type_request == 'administrative':
-        #     requirement_env.create(data_request)
-
        return res
+    
+
+    
+    def write(self, values):
+        res = super(mod_request, self).write(values)
+        _logger.warning("requirement_env",self.mod_request_requirements_ids)
+        if self.type_request == 'administrative':
+            for rq in self.mod_request_requirements_ids:
+                rq.amount_requirement=self.amount
+        return res
 
 
     def validate_fields_pro_fact(self):

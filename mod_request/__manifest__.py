@@ -34,6 +34,8 @@
         'views/mod_request_masive_paid_view.xml',
         'wizard/mod_requirement_text.xml',
         'wizard/mod_request_check_list.xml',
+        'views/res_config_settings.xml',
+        
         # 'views/res_users.xml',
     ],
     # only loaded in demonstration mode

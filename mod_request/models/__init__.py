@@ -5,3 +5,4 @@ from . import mod_request_export
 from . import rest_api_token
 from . import mod_request_upload_judicial
 from . import mod_request_masive_paid
+from . import res_config_settings

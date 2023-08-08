@@ -195,12 +195,9 @@
                     <filter string="Type Request Administrative" name="type_request" domain="[('type_request','like','administrative')]" />
                     <filter string="Date Request" name="date_request" date="date_request" />
                     <filter string="State Pending" name="state" domain="[('state','ilike','pending')]" />
-                    <filter string="State In progress" name="state" domain="[('state','ilike','in_progress')]" />
                     <filter string="State Subscriber" name="state" domain="[('state','ilike','subscriber')]" />
-                    <filter string="State Purchased" name="state" domain="[('state','ilike','purchased')]" />
                     <filter string="State Supported" name="state" domain="[('state','ilike','supported')]" />
                     <filter string="State Complete" name="state" domain="[('state','ilike','complete')]" />
-                    <filter string="State Purchase to approve" name="state" domain="[('state','ilike','purchase_to_approve')]" />
                     <filter string="State Support to approve" name="state" domain="[('state','ilike','support_to_approve')]" />
                     <filter string="State Refused" name="state" domain="[('state','ilike','refused')]" />
 
