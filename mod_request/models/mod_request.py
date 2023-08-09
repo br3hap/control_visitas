@@ -5,7 +5,7 @@ import requests
 from odoo.http import request
 from odoo.exceptions import UserError
 import base64
-from datetime import datetime
+from datetime import datetime, date
 import logging
 _logger = logging.getLogger(__name__)   
 
@@ -202,6 +202,7 @@ class mod_request(models.Model):
         expense_sheet_env = self.env['hr.expense.sheet']
         employee_env = self.env['hr.employee']
         hr_expense_env = self.env['hr.expense']
+        invoice_expense_env = self.env['invoice.expense']
         is_enable = self.env['ir.config_parameter'].sudo().get_param('mod_request.allow_shortening_processes', default=False)
         
         employe_id = self.seller
@@ -225,26 +226,114 @@ class mod_request(models.Model):
 
             fecha_expense = str(line.date_request_requirement.year)+"-"+str(line.date_request_requirement.month)+"-"+str(line.date_request_requirement.day)
             
-            if not line.product_id:
+            if not line.product_id and not line.account_move_id:
                 raise UserError(_("Debe Seleccionar los Gastos Amarrados a los Requerimientos"))
+            
+            if line.product_id:
+                data_expense = {
+                                'name': line.name_requirement,
+                                'employee_id': employe_id.id,
+                                'payment_mode': 'company_account',
+                                'total_amount': line.amount_requirement,
+                                'date': fecha_expense,
+                                'accounting_date': fecha_expense,
+                                'product_id': line.product_id.id,
+                                'sheet_id': self.expense_sheet_id.id,
+                }
+                hr_expense_env.create(data_expense)
 
-            data_expense = {
-                            'name': line.name_requirement,
-                            'employee_id': employe_id.id,
-                            'payment_mode': 'company_account',
-                            'total_amount': line.amount_requirement,
-                            'date': fecha_expense,
-                            'accounting_date': fecha_expense,
-                            'product_id': line.product_id.id,
-                            'sheet_id': self.expense_sheet_id.id,
-            }
+            elif line.account_move_id:
+                data_invoice = {
+                    'descripcion':line.name_requirement,
+                    'invoice_id':line.account_move_id.id,
+                    'amount_company':line.account_move_id.amount_residual,
+                    'amount_total':line.amount_requirement,
+                    'expense_sheet_id':self.expense_sheet_id.id,
 
-            hr_expense_env.create(data_expense)
+                }
+                invoice_expense_env.create(data_invoice)
+
             if is_enable:
                 expense_sheet_id.action_submit_sheet()
                 expense_sheet_id.approve_expense_sheets()
+                
+    # DNINACO CREACION MASIVA DE UN GASTO PARA VARIAS SOLICITUDES
+    def action_masive_expenses(self):
+        expense_sheet_env = self.env['hr.expense.sheet']
+        employee_env = self.env['hr.employee']
+        hr_expense_env = self.env['hr.expense']
+        invoice_expense_env = self.env['invoice.expense']
+        is_enable = self.env['ir.config_parameter'].sudo().get_param('mod_request.allow_shortening_processes', default=False)
+        
+        # VALIDACION DE ESTADOS Y DE MISMO VENDEDOR
+        employe_id = False
+        name = 'Informe de Gasto ('
+        for rec in self.browse(self._context.get('active_ids')):
+            if not rec.seller.id:
+                raise UserError(_("Todas las Solicitudes deben Contener el Campo Vendedor Registrado"))
+            if rec.state != 'supported':
+                raise UserError(_("Solo debe Seleccionar Solicitudes en estado Sustentado"))
+            if employe_id:
+                name = name+','+rec.name
+                if employe_id != rec.seller.id:
+                    raise UserError(_("Solo debe Seleccionar Solicitudes de una mima Persona Asignada"))
+            else:
+                name = name+rec.name
+                employe_id = rec.seller.id
+        
+        name = name+")"
 
-            
+        # CREACION DE GASTOS
+        fecha_expense_sheet = date.today()
+
+        data_expense_sheet = {
+                'name': name,
+                'employee_id': employe_id,
+                'payment_mode': 'company_account',
+                'accounting_date': fecha_expense_sheet,
+        }
+        expense_sheet_id = expense_sheet_env.create(data_expense_sheet)
+        
+        # RECORREMOS, ASIGNAMOS EL GASTO GENERADO y GENERAMOS LAS LINEAS DE GASTO
+        for rec in self.browse(self._context.get('active_ids')):
+            rec.expense_sheet_id = expense_sheet_id.id
+            rec.ocultar_create_expense = True
+        
+            for line in rec.mod_request_requirements_ids:
+
+                fecha_expense = str(line.date_request_requirement.year)+"-"+str(line.date_request_requirement.month)+"-"+str(line.date_request_requirement.day)
+                
+                if not line.product_id and not line.account_move_id:
+                    raise UserError(_("Debe Seleccionar los Gastos Amarrados a los Requerimientos"))
+                
+                if line.product_id:
+                    data_expense = {
+                                    'name': line.name_requirement,
+                                    'employee_id': employe_id,
+                                    'payment_mode': 'company_account',
+                                    'total_amount': line.amount_requirement,
+                                    'date': fecha_expense,
+                                    'accounting_date': fecha_expense,
+                                    'product_id': line.product_id.id,
+                                    'sheet_id': expense_sheet_id.id,
+                    }
+                    hr_expense_env.create(data_expense)
+
+                elif line.account_move_id:
+                    data_invoice = {
+                        'descripcion':line.name_requirement,
+                        'invoice_id':line.account_move_id.id,
+                        'amount_company':line.account_move_id.amount_residual,
+                        'amount_total':line.amount_requirement,
+                        'expense_sheet_id':expense_sheet_id.id,
+
+                    }
+                    invoice_expense_env.create(data_invoice)
+
+        if is_enable:
+            expense_sheet_id.action_submit_sheet()
+            expense_sheet_id.approve_expense_sheets()
+
 
     @api.depends('mod_request_requirements_ids.amount_requirement')
     def _compute_amounts(self):

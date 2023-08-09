@@ -7,12 +7,13 @@
         <field name="arch" type="xml">
 
             <xpath expr="//button[@name='reset_expense_sheets']" position="before">
+                <field name="show_payment_voucher"/>
                 <button name="paid_expense"
                             string="Pagar Comprobantes"
                             type="object"
                             data-hotkey="y"
                             class="oe_highlight"
-                            attrs="{'invisible':[('state','not in',('done'))]}"
+                            attrs="{'invisible':['|',('state','not in',('done')),('show_payment_voucher','=',False)]}"
                             />
             </xpath>
 
@@ -61,7 +62,7 @@
                                 Cliente:
                             </t>
                             <t t-if="o.partner_type == 'supplier'">
-                                Proveedor:
+                                Girado a Nombre De:
                             </t><span t-field="o.partner_id"/>
                         </div>
                     </div>

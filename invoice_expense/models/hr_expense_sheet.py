@@ -15,6 +15,7 @@ class hr_expense_sheet(models.Model):
     _inherit = 'hr.expense.sheet'
 
     invoice_expense_ids = fields.One2many('invoice.expense', 'expense_sheet_id', 'Expense')
+    show_payment_voucher = fields.Boolean(string='Pagar Comprobantes', compute = '_compute_show_payment_voucher')
 
     def action_sheet_move_create(self):
 
@@ -43,7 +44,8 @@ class hr_expense_sheet(models.Model):
 
         self.activity_update()
         mod_request_env = self.env['mod.request'].search([('expense_sheet_id','=',self.id)])
-        mod_request_env.action_complete()
+        for rec in mod_request_env:
+            rec.action_complete()
         return res
 
     @api.depends('invoice_expense_ids.amount_total','expense_line_ids.total_amount_company')
@@ -75,6 +77,7 @@ class hr_expense_sheet(models.Model):
     def paid_expense(self):
         for comprobante in self.invoice_expense_ids:
             payment = self.env['account.payment'].create(self._get_payment_vals(comprobante))
+            _logger.warning("payment",payment)
             payment.action_post()
 
             comprobante.paid_move = payment.line_ids[0].move_id.id
@@ -97,6 +100,13 @@ class hr_expense_sheet(models.Model):
         mod_request_env = self.env['mod.request'].search([('expense_sheet_id','=',self.id)])
         mod_request_env.back_function()
         return True
+    
+
+    def _compute_show_payment_voucher(self):
+        if len(self.invoice_expense_ids) >= 1:
+            self.show_payment_voucher = True
+        else:
+            self.show_payment_voucher = False
     
 
 class invoice_expense(models.Model):
