@@ -6,15 +6,22 @@
         <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//button[@name='reset_expense_sheets']" position="before">
-                <field name="show_payment_voucher"/>
+            <xpath expr="//button[@name='action_sheet_move_create']" position="before">
+                <field name="show_payment_voucher" invisible="1"/>
+                <field name="show_hide_post_seat" invisible="1"/>
+                <field name="hide_pay_voucher" invisible="1"/>
+                <field name="hide_post_seat" invisible="1"/>
                 <button name="paid_expense"
                             string="Pagar Comprobantes"
                             type="object"
                             data-hotkey="y"
                             class="oe_highlight"
-                            attrs="{'invisible':['|',('state','not in',('done')),('show_payment_voucher','=',False)]}"
+                            attrs="{'invisible':['|','|',('state','not in',('approve')),('show_payment_voucher','=',False),('hide_pay_voucher','=',True)]}"
                             />
+            </xpath>
+
+            <xpath expr="//button[@name='action_sheet_move_create']" position="attributes">
+                <attribute name="attrs">{'invisible':['|','|',('state','!=','approve'),('show_payment_voucher','=',True),'|','|',('state','!=','approve'),('hide_pay_voucher','=',True),'|',('state','!=','approve'),('show_hide_post_seat','=',False),'|',('state','!=','approve'),('hide_pay_voucher','=',False)]}</attribute>
             </xpath>
 
             <xpath expr="//page/group[@name='expense_total']" position="replace">

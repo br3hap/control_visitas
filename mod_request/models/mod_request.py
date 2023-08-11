@@ -11,7 +11,7 @@ _logger = logging.getLogger(__name__)
 
 class mod_request(models.Model):
     _name = 'mod.request'
-    _inherit = ['mail.thread']
+    _inherit = ['mail.thread', 'mail.activity.mixin', 'analytic.mixin']
     _description = _("Requirements and Request")
 
     _order = 'create_date desc'
@@ -29,7 +29,8 @@ class mod_request(models.Model):
 
     LIST_TYPE_REQUEST = [
         ('judicial', 'Judicial'),
-        ('administrative', 'Administrative')
+        ('administrative', 'Administrative'),
+        ('others', 'Others')
     ]
 
     LIST_STATE = [
@@ -256,6 +257,11 @@ class mod_request(models.Model):
             if is_enable:
                 expense_sheet_id.action_submit_sheet()
                 expense_sheet_id.approve_expense_sheets()
+                _logger.warning("si llegó")
+                # expense_sheet_id.action_sheet_move_create()
+                # _logger.warning("si llegócreate")
+                # expense_sheet_id.action_register_payment()
+                # _logger.warning("ya no llegó")
                 
     # DNINACO CREACION MASIVA DE UN GASTO PARA VARIAS SOLICITUDES
     def action_masive_expenses(self):
@@ -333,6 +339,7 @@ class mod_request(models.Model):
         if is_enable:
             expense_sheet_id.action_submit_sheet()
             expense_sheet_id.approve_expense_sheets()
+
 
 
     @api.depends('mod_request_requirements_ids.amount_requirement')
@@ -508,7 +515,7 @@ class mod_request(models.Model):
 
     
     def back_function(self):
-        if self.type_request == 'judicial' and self.process_request in ('purchase','transfer'):
+        if self.type_request in ('judicial','others') and self.process_request in ('purchase','transfer'):
 
             if self.state == 'subscriber':
                 self.state = 'pending'
@@ -546,7 +553,7 @@ class mod_request(models.Model):
                 self.state = 'supported'
                 self.api_onchange_status(self.name, 'sustentado')
 
-        elif self.type_request == 'judicial' and self.process_request in ('repayment'):
+        elif self.type_request in ('judicial','others') and self.process_request in ('repayment'):
 
             if self.state == 'complete':
                 self.state = 'pending'

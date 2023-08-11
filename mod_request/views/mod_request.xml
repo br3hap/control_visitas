@@ -91,7 +91,7 @@
                                 <field name="name_applicant" placeholder='Applicant name' />
                                 <field name="process_request" />
                                 <field name="format_request" attrs="{'invisible' : [('type_request','=','administrative')]}" />
-                                <field name="file_request" filename='file_name' attrs="{'invisible' : [('type_request','=','judicial')]}" />
+                                <field name="file_request" filename='file_name' attrs="{'invisible' : [('type_request','in',('judicial','others'))]}" />
                                 <field name="file_name" invisible='1' />
                                 <field name="description" placeholder='Description' />
                             </group>
@@ -101,7 +101,7 @@
                                 <field name="date_request" placeholder='Date Request' />
                                 <field name="currency_id" placeholder='Currency' />
                                 <field name="partner_id" attrs="{'invisible' : [('type_request','=','administrative')]}" placeholder='Partner' />
-                                <field name="amount" attrs="{'invisible' : [('type_request','=','judicial')]}" placeholder='Amount' />
+                                <field name="amount" attrs="{'invisible' : [('type_request','in',('judicial','others'))]}" placeholder='Amount' />
                             </group>
                         </group>
 
@@ -172,8 +172,10 @@
                             </page>
                         </notebook>
                     </sheet>
+                    <div class="o_attachment_preview"/>
                     <div class="oe_chatter">
                         <field name="message_follower_ids" />
+                        <field name="activity_ids"/>
                         <field name="message_ids" />
                     </div>
                 </form>
@@ -193,6 +195,7 @@
                     <separator />
                     <filter string="Type Request Judicial" name="type_request" domain="[('type_request','like','judicial')]" />
                     <filter string="Type Request Administrative" name="type_request" domain="[('type_request','like','administrative')]" />
+                    <filter string="Type Request Others" name="type_request" domain="[('type_request','like','others')]" />
                     <filter string="Date Request" name="date_request" date="date_request" />
                     <filter string="State Pending" name="state" domain="[('state','ilike','pending')]" />
                     <filter string="State Subscriber" name="state" domain="[('state','ilike','subscriber')]" />

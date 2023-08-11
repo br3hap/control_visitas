@@ -41,7 +41,7 @@ class mod_request_masive_paid(models.TransientModel):
         payment.action_post()
 
         for solicitud in self.env['mod.request'].browse(self._context.get('active_domain')):
-            if solicitud.type_request == 'judicial':
+            if solicitud.type_request in ('judicial','others'):
                 if solicitud.process_request == 'repayment':
                     solicitud.action_complete()
                 else:

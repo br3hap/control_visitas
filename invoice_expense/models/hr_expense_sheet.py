@@ -14,8 +14,12 @@ class hr_expense_sheet(models.Model):
     _name = 'hr.expense.sheet'
     _inherit = 'hr.expense.sheet'
 
+
     invoice_expense_ids = fields.One2many('invoice.expense', 'expense_sheet_id', 'Expense')
     show_payment_voucher = fields.Boolean(string='Pagar Comprobantes', compute = '_compute_show_payment_voucher')
+    show_hide_post_seat = fields.Boolean(string='Public seat', compute = '_compute_show_hide_post_seat')
+    hide_pay_voucher = fields.Boolean('Hide pay vouchers')
+    hide_post_seat = fields.Boolean('Hide post seat')
 
     def action_sheet_move_create(self):
 
@@ -46,6 +50,7 @@ class hr_expense_sheet(models.Model):
         mod_request_env = self.env['mod.request'].search([('expense_sheet_id','=',self.id)])
         for rec in mod_request_env:
             rec.action_complete()
+        
         return res
 
     @api.depends('invoice_expense_ids.amount_total','expense_line_ids.total_amount_company')
@@ -89,6 +94,15 @@ class hr_expense_sheet(models.Model):
                 #else:
                 #    line.partner_id = self.employee_id.address_home_id.id
             account_move_lines_to_reconcile.reconcile()
+        if len(self.expense_line_ids) == 0:
+            self.write({'state': 'done', 'amount_residual': 0.0, 'payment_state': 'paid'})
+        self.hide_pay_voucher = True
+        self.hide_post_seat = True
+        mod_request_env = self.env['mod.request'].search([('expense_sheet_id','=',self.id)])
+        for rec in mod_request_env:
+            rec.action_complete()
+        
+
 
     
     def reset_expense_sheets(self):
@@ -107,6 +121,14 @@ class hr_expense_sheet(models.Model):
             self.show_payment_voucher = True
         else:
             self.show_payment_voucher = False
+    
+
+    def _compute_show_hide_post_seat(self):
+        if len(self.expense_line_ids) >= 1:
+            self.show_hide_post_seat = True
+        else:
+            self.show_hide_post_seat = False
+
     
 
 class invoice_expense(models.Model):

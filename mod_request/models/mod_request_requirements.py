@@ -4,6 +4,7 @@ from odoo import models, fields, api, _
 
 class mod_request_requirements(models.Model):
     _name = 'mod.request.requirements'
+    _inherit = ['mail.thread', 'mail.activity.mixin', 'analytic.mixin']
     _description = _("Detail of the requirements")
 
     _order = 'create_date desc'
