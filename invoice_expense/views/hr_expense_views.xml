@@ -88,7 +88,7 @@
                             Importe de Pago: <span t-field="o.amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
                          </div>
                         <div class="col-6" t-if="o.ref">
-                            Memo: <span t-field="o.ref"/>
+                            Número de Operación: <span t-field="o.ref"/>
                          </div>
                     </div>
                 </div>

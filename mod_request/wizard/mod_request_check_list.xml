@@ -33,7 +33,7 @@
                     <field name="observation_supported" placeholder='Observation'/>
                 </group>
                 <footer>
-                    <button name ="save" string="Save" type="object" class="oe_highlight"/>
+                    <button name ="save" string="Validate" type="object" class="oe_highlight"/>
 						or
                     <button string="Cancel" special="cancel"/>
                 </footer>

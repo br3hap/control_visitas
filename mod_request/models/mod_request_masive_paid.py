@@ -9,8 +9,8 @@ class mod_request_masive_paid(models.TransientModel):
 
     journal_id = fields.Many2one('account.journal', 'Diario', required = True)
     account_id = fields.Many2one('account.account', 'Cuenta Destino', required = True)
-    date = fields.Date('Fecha', required = True)
-    memo = fields.Char('Memo', required = True)
+    date = fields.Date('Fecha', required = True,default = lambda self: fields.datetime.now())
+    memo = fields.Char('Número de Operación', required = True)
     amount = fields.Float('Monto', required = True)
     partner_id = fields.Many2one('res.partner', 'Persona Asignada', required=True)
 

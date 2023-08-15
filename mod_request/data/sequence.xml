@@ -1,11 +1,19 @@
 <odoo>
     <data noupdate='0'>
-        <record id='request_sequence' model='ir.sequence'>
-            <field name='name'>Request Sequence</field>
-            <field name='code'>mod.request.sequence</field>
-            <field name='prefix'>SOL-</field>
+        <record id='seq_request_liquidation' model='ir.sequence'>
+            <field name='name'>Request Sequence Liquidation</field>
+            <field name='code'>mod.request.liquidation</field>
+            <field name='prefix'>Informe de Liquidación-</field>
             <field name='padding'>5</field>
             <field name='company_id' eval='False' />
         </record>
+
+        <!-- <record id='seq_request_expense' model='ir.sequence'>
+            <field name='name'>Request Sequence expense</field>
+            <field name='code'>mod.request.expense</field>
+            <field name='prefix'>GASTO-</field>
+            <field name='padding'>5</field>
+            <field name='company_id' eval='False' />
+        </record> -->
     </data>
 </odoo>

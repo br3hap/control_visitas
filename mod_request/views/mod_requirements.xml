@@ -9,17 +9,21 @@
                     <field name="name_requirement" />
                     <field name="case_requirement" />
                     <field name="proceedings_requirement" />
-                    <field name="amount_requirement" />
+                    <field name="amount_requirement" invisible="1"/>
                     <!-- <field name="amount_total" sum="Total Tax Included" widget="monetary" decoration-bf="1" optional="show"/> -->
                     <field name="date_request_requirement" />
                     <field name="court_entity_requirement" />
                     <field name="ruc_dni_requirement" />
                     <field name="description_requirement" />
+                    <field name="state" string='Estado de Solicitud'/>
                     <field name="product_id" domain="[('can_be_expensed','=',True)]" />
                     <field name="account_move_id"
                         domain="[('move_type','=','in_invoice'),('state','=','posted'),('amount_residual','!=',0)]" />
                         <field name='partner_id'
                         optional="hide"/>
+                    <field name='is_repayment'/>
+                    <field name='liquidation_generated' readonly="1"/>
+                    <field name="amount_total" sum="Total Tax Included" widget="monetary" decoration-bf="1" optional="show"/>
                 </tree>
             </field>
         </record>
@@ -58,6 +62,8 @@
                                 <field name="description_requirement"
                                     attrs="{'readonly':[('state_request','=',True)]}" />
                                 <field name='partner_id' optional="hide"/>
+                                <field name='is_repayment'/>
+                                <field name='liquidation_generated' readonly="1"/>
                             </group>
                         </group>
                         <group name="group_2">
@@ -80,7 +86,8 @@
             <field name="model">mod.request.requirements</field>
             <field name="arch" type="xml">
                 <search string="Search Module Requirements">
-                    <field name="mod_request_id" filter_domain="[('mod_request_id', 'ilike', self)]" />
+                    <field name="name_requirement" filter_domain="[('name_requirement', 'ilike', self)]" />
+                    <!-- <field name="mod_request_id" filter_domain="[('mod_request_id', 'ilike', self)]" />
                     <field name="name_requirement"
                         filter_domain="[('name_requirement', 'ilike', self)]" />
                     <field name="case_requirement"
@@ -90,11 +97,19 @@
                     <field name="court_entity_requirement"
                         filter_domain="[('court_entity_requirement', 'ilike', self)]" />
                     <field name="ruc_dni_requirement"
-                        filter_domain="[('ruc_dni_requirement', 'ilike', self)]" />
+                        filter_domain="[('ruc_dni_requirement', 'ilike', self)]" /> -->
                     <separator />
                     <filter string="Date Request Requirement" name="date_request_requirement"
                         date="date_request_requirement" />
 
+                    <separator />
+                                        
+                    <filter string="Pending" name="state" domain="[('state','ilike','pending')]" />
+                    <filter string="Subscriber" name="state" domain="[('state','ilike','subscriber')]" />
+                    <filter string="Supported" name="state" domain="[('state','ilike','supported')]" />
+                    <filter string="Complete" name="state" domain="[('state','ilike','complete')]" />
+                    <filter string="Por Aprobar" name="state" domain="[('state','ilike','support_to_approve')]" />
+                    <filter string="Refused" name="state" domain="[('state','ilike','refused')]" />
                     <separator />
                     <group expand="0" name="group_by" string="Group By">
                         <filter name="mod_request_id"
@@ -106,6 +121,10 @@
                             string="RUC / DNI"
                             domain="[]"
                             context="{'group_by' : 'ruc_dni_requirement'}" />
+                        <filter name="partner_id"
+                            string="Partner"
+                            domain="[]"
+                            context="{'group_by' : 'partner_id'}" />
                     </group>
                 </search>
             </field>

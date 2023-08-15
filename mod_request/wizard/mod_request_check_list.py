@@ -43,7 +43,7 @@ class mod_request_check_list_supported(models.TransientModel):
 
     cod_request = fields.Many2one('mod.request', string='Cod. Request')
     observation_supported = fields.Text(string="Observation")
-    checklist_supported = fields.Boolean(string="CheckList Supported")
+    checklist_supported = fields.Boolean(string="CheckList Supported", default=True)
     attach_support = fields.Boolean(string='Attach Support')
 
 
@@ -51,11 +51,11 @@ class mod_request_check_list_supported(models.TransientModel):
         c = super(mod_request_check_list_supported, self).default_get(fields)
         cod_request = self._context['get_cod']
         observation_supported = self._context['get_observation_supported']
-        checklist_supported = self._context['get_checklist_supported']
+        # checklist_supported = self._context['get_checklist_supported']
         attach_support = self._context['get_attach_support']
         c['cod_request'] = cod_request
         c['observation_supported'] = observation_supported
-        c['checklist_supported'] = checklist_supported
+        # c['checklist_supported'] = checklist_supported
         c['attach_support'] = attach_support
         return c
 

@@ -52,6 +52,16 @@ class mod_request(models.Model):
         'cancel': [('readonly', True)],
     }
 
+    LIST_EXPENSE = [
+        ('pending','Pending'),
+        ('generated','Generated'),
+    ]
+
+    LIST_LIQUIDATION = [
+        ('pending','Pending'),
+        ('generated','Generated'),
+    ]
+
     _sql_constraints = [('name_unique', 'unique(name)','name already exists')]
 
 
@@ -102,6 +112,9 @@ class mod_request(models.Model):
     date_supported = fields.Datetime(string="Date Supported")
     attach_purchase = fields.Boolean(string='Attach Purchase')
     attach_support = fields.Boolean(string='Attach Support')
+    expense_generated = fields.Selection(LIST_EXPENSE, string='Expense Generated', default='pending')
+    # liquidation_generated = fields.Selection(LIST_LIQUIDATION, string='Liquidation Generated', default='pending')
+    # liquidation_generated_b = fields.Boolean(string='Liquidation Generated', default=False)
     
     # DNINACO
     def _compute_count_payment(self):
@@ -222,6 +235,7 @@ class mod_request(models.Model):
         expense_sheet_id = expense_sheet_env.create(data_expense_sheet)
         self.expense_sheet_id = expense_sheet_id.id
         self.ocultar_create_expense = True
+        self.expense_generated = 'generated'
         
         for line in self.mod_request_requirements_ids:
 
@@ -257,7 +271,16 @@ class mod_request(models.Model):
             if is_enable:
                 expense_sheet_id.action_submit_sheet()
                 expense_sheet_id.approve_expense_sheets()
-                _logger.warning("si llegó")
+        return {
+            'name': _('test'),
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_id':expense_sheet_id.id,
+            'view_id': self.env.ref('invoice_expense.view_hr_expense_sheet_form_inherit').id,
+            'res_model': 'hr.expense.sheet',
+            'type': 'ir.actions.act_window',
+            'target': 'current',
+        }
                 # expense_sheet_id.action_sheet_move_create()
                 # _logger.warning("si llegócreate")
                 # expense_sheet_id.action_register_payment()
@@ -304,6 +327,7 @@ class mod_request(models.Model):
         for rec in self.browse(self._context.get('active_ids')):
             rec.expense_sheet_id = expense_sheet_id.id
             rec.ocultar_create_expense = True
+            rec.expense_generated = 'generated'
         
             for line in rec.mod_request_requirements_ids:
 
@@ -339,6 +363,17 @@ class mod_request(models.Model):
         if is_enable:
             expense_sheet_id.action_submit_sheet()
             expense_sheet_id.approve_expense_sheets()
+        
+        return {
+                'name': _('test'),
+                'view_type': 'form',
+                'view_mode': 'form',
+                'res_id':expense_sheet_id.id,
+                'view_id': self.env.ref('invoice_expense.view_hr_expense_sheet_form_inherit').id,
+                'res_model': 'hr.expense.sheet',
+                'type': 'ir.actions.act_window',
+                'target': 'current',
+            }
 
 
 
@@ -680,4 +715,50 @@ class mod_request(models.Model):
         for rec in self.mod_request_requirements_ids:
             if not rec.product_id  and not rec.account_move_id:
                 raise UserError(_("Empty product or invoice fields"))
+            
+    
+    # @api.model
+    # def action_generate_liquidation(self):
+    #     liquidation_sheet_env = self.env['mod.request.liquidation.sheet']
+    #     liquidation_sheet_line_env = self.env['mod.request.liquidation.sheet.line']
+    #     employe_id = self.seller
+    #     data_liquidation_sheet = {
+    #         # 'name':self.name,
+    #         # 'employee_id':employe_id.id,
+    #     }
+    #     liquidation_sheet_id = liquidation_sheet_env.create(data_liquidation_sheet)
+
+    #     for rec in self.browse(self._context.get('active_ids')):
+    #         if rec.state != 'complete':
+    #             raise UserError(_("Solo debe Seleccionar Solicitudes en estado Completado"))
+
+    #         rec.liquidation_generated_b = True
+
+
+    #     for line in self.mod_request_requirements_ids:
+    #         data_liquidation_sheet_line = {
+    #             'request_id':line.mod_request_id.id,
+    #             'name':line.name_requirement,
+    #             'case':line.case_requirement,
+    #             'proceedings':line.proceedings_requirement,
+    #             'date':line.date_request_requirement,
+    #             'court_entity':line.court_entity_requirement,
+    #             'ruc_dni':line.ruc_dni_requirement,
+    #             'description':line.description_requirement,
+    #             'partner_id':line.partner_id.id,
+    #             'amount':line.amount_requirement,
+    #             'liquidation_sheet_id':liquidation_sheet_id.id
+    #         }
+    #         liquidation_sheet_line_env.create(data_liquidation_sheet_line)
+
+    #     return {
+    #             'name': _('test'),
+    #             'view_type': 'form',
+    #             'view_mode': 'form',
+    #             'res_id':liquidation_sheet_id.id,
+    #             'view_id': self.env.ref('mod_request.view_liquidation_sheet_form').id,
+    #             'res_model': 'mod.request.liquidation.sheet',
+    #             'type': 'ir.actions.act_window',
+    #             'target': 'current',
+    #         }
             

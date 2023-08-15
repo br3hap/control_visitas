@@ -17,6 +17,8 @@
                     <field name="amount_total" sum="Total Tax Included" widget="monetary" decoration-bf="1" optional="show"/>
                     <field name="state" widget="badge" decoration-success="state == 'complete'" decoration-danger="state == 'cancel'" />
                     <field name="process_request" />
+                    <!-- <field name="expense_generated" widget="badge" decoration-info="expense_generated == 'generated'" optional="show" string="Gasto"/> -->
+                    <!-- <field name="liquidation_generated_b" optional="hide" string="Liquidación"/> -->
                 </tree>
             </field>
         </record>
@@ -96,11 +98,11 @@
                                 <field name="description" placeholder='Description' />
                             </group>
                             <group>
-                                <field name="seller" placeholder='Seller' />
+                                <field name="seller" placeholder='Seller' string='Solicitante'/>
                                 <field name="type_request" />
                                 <field name="date_request" placeholder='Date Request' />
                                 <field name="currency_id" placeholder='Currency' />
-                                <field name="partner_id" attrs="{'invisible' : [('type_request','=','administrative')]}" placeholder='Partner' />
+                                <field name="partner_id" placeholder='Partner' />
                                 <field name="amount" attrs="{'invisible' : [('type_request','in',('judicial','others'))]}" placeholder='Amount' />
                             </group>
                         </group>
@@ -193,16 +195,18 @@
                     <field name="type_request" filter_domain="[('type_request', 'ilike', self)]" />
                     <field name="partner_id" filter_domain="[('partner_id', 'ilike', self)]" />
                     <separator />
-                    <filter string="Type Request Judicial" name="type_request" domain="[('type_request','like','judicial')]" />
-                    <filter string="Type Request Administrative" name="type_request" domain="[('type_request','like','administrative')]" />
-                    <filter string="Type Request Others" name="type_request" domain="[('type_request','like','others')]" />
+                    <filter string="Type Judicial" name="type_request" domain="[('type_request','like','judicial')]" />
+                    <filter string="Type Administrative" name="type_request" domain="[('type_request','like','administrative')]" />
+                    <filter string="Others" name="type_request" domain="[('type_request','like','others')]" />
+                    <separator />
                     <filter string="Date Request" name="date_request" date="date_request" />
-                    <filter string="State Pending" name="state" domain="[('state','ilike','pending')]" />
-                    <filter string="State Subscriber" name="state" domain="[('state','ilike','subscriber')]" />
-                    <filter string="State Supported" name="state" domain="[('state','ilike','supported')]" />
-                    <filter string="State Complete" name="state" domain="[('state','ilike','complete')]" />
-                    <filter string="State Support to approve" name="state" domain="[('state','ilike','support_to_approve')]" />
-                    <filter string="State Refused" name="state" domain="[('state','ilike','refused')]" />
+                    <separator />
+                    <filter string="Pending" name="state" domain="[('state','ilike','pending')]" />
+                    <filter string="Subscriber" name="state" domain="[('state','ilike','subscriber')]" />
+                    <filter string="Supported" name="state" domain="[('state','ilike','supported')]" />
+                    <filter string="Complete" name="state" domain="[('state','ilike','complete')]" />
+                    <filter string="Por Aprobar" name="state" domain="[('state','ilike','support_to_approve')]" />
+                    <filter string="Refused" name="state" domain="[('state','ilike','refused')]" />
 
 
                     <separator />

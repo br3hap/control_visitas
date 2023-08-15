@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="mod_request_report_date" model="ir.ui.view">
+        <field name="name">mod.request.report.date.wizard</field>
+        <field name="model">mod.request.report.date.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group col="4" colspan="6">
+                    <field name="date_from"/>
+                    <newline/>
+                    <field name="date_to"/>
+                </group>
+			</form>
+        </field>
+    </record>
+</odoo>

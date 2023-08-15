@@ -20,6 +20,7 @@ class hr_expense_sheet(models.Model):
     show_hide_post_seat = fields.Boolean(string='Public seat', compute = '_compute_show_hide_post_seat')
     hide_pay_voucher = fields.Boolean('Hide pay vouchers')
     hide_post_seat = fields.Boolean('Hide post seat')
+    
 
     def action_sheet_move_create(self):
 
