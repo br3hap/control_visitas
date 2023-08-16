@@ -32,6 +32,16 @@ class mod_request_requirements(models.Model):
     liquidation_generated = fields.Boolean(string='Liquidation Generated', default=False)
     amount_total = fields.Float(string="Amount", compute='_compute_amounts', tracking=4)
 
+    def _compute_count_payment(self):
+        for rec in self:
+            if rec.liquidation_id:
+                rec.liqui_count = 1
+            else:
+                rec.liqui_count = 0
+
+    liqui_count = fields.Integer(string="Contador de Liquidación", compute="_compute_count_payment")
+    liquidation_id = fields.Many2one('mod.request.liquidation.sheet', 'Liquidación')
+
     
 
     # DNINACO
@@ -121,13 +131,8 @@ class mod_request_requirements(models.Model):
         }
         liquidation_sheet_id = liquidation_sheet_env.create(data_liquidation_sheet)
 
-        # for rec in self.browse(self._context.get('active_ids')):
-        #     if rec.state != 'complete':
-        #         raise UserError(_("Solo debe Seleccionar Solicitudes en estado Completado"))
 
-        #     rec.liquidation_generated_b = True
-
-
+        self.liquidation_id = liquidation_sheet_id.id
         for line in self:
             if line.mod_request_id.state != 'complete':
                 raise UserError(_("Solo debe Seleccionar Solicitudes en estado Completado"))
@@ -159,5 +164,26 @@ class mod_request_requirements(models.Model):
                 'type': 'ir.actions.act_window',
                 'target': 'current',
             }
+    
+
+    def view_liquidation(self, liquidation=False):
+        if not liquidation:
+            self.sudo()._read(['liquidation_id'])
+            liquidation = self.liquidation_id
+
+        result = self.env['ir.actions.act_window']._for_xml_id('mod_request.mod_request_action_liquidation_report')
+        
+        if liquidation:
+            res = self.env.ref('mod_request.view_liquidation_sheet_form', False)
+            form_view = [(res and res.id or False, 'form')]
+            if 'views' in result:
+                result['views'] = form_view + [(state, view) for state, view in result['views'] if view != 'form']
+            else:
+                result['views'] = form_view
+            result['res_id'] = liquidation.id
+        else:
+            result = {'type': 'ir.actions.act_window_close'}
+
+        return result
             
 

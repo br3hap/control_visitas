@@ -51,3 +51,11 @@ class mod_request_masive_paid(models.TransientModel):
             # solicitud.state='subscriber'
             solicitud.payment_id = payment.id
             solicitud.num_operation = self.memo
+            for r in solicitud.mod_request_requirements_ids:
+                data = {
+                    'account_id':payment.id,
+                    'cod_requirement':r.name_requirement,
+                    'amount_requirement':r.amount_requirement,
+                }
+                payment.lines_req = [(0,0,data)]
+            

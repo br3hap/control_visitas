@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0-20230720\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-14 13:38+0000\n"
-"PO-Revision-Date: 2023-08-14 08:49-0500\n"
+"POT-Creation-Date: 2023-08-16 14:24+0000\n"
+"PO-Revision-Date: 2023-08-16 09:31-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,7 @@ msgstr "Requerimiento"
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "ABOGADO A CARGO / FUNCIONARIO"
 msgstr ""
@@ -49,6 +50,7 @@ msgid "APPLICANT NAME"
 msgstr "NOMBRE DEL SOLICITANTE"
 
 #. module: mod_request
+#: model:ir.model.fields,field_description:mod_request.field_account_payment_lines_req__account_id
 #: model:ir.model.fields,field_description:mod_request.field_mod_request__account
 #: model_terms:ir.ui.view,arch_db:mod_request.view_request_form
 msgid "Account"
@@ -138,11 +140,13 @@ msgid "Allow shortening processes in the creation of spending"
 msgstr "Permitir acortar procesos en la creación de gasto"
 
 #. module: mod_request
+#: model:ir.model.fields,field_description:mod_request.field_account_payment_lines_req__amount_requirement
 #: model:ir.model.fields,field_description:mod_request.field_mod_request__amount
 #: model:ir.model.fields,field_description:mod_request.field_mod_request__amount_compute
 #: model:ir.model.fields,field_description:mod_request.field_mod_request__amount_total
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet_line__amount
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_requirements__amount_requirement
+#: model:ir.model.fields,field_description:mod_request.field_mod_request_requirements__amount_total
 #: model_terms:ir.ui.view,arch_db:mod_request.report_mod_request
 #: model_terms:ir.ui.view,arch_db:mod_request.view_request_form
 msgid "Amount"
@@ -245,6 +249,7 @@ msgstr "CASO"
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "CASO"
 msgstr ""
@@ -252,6 +257,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "CLIENTE"
 msgstr ""
@@ -259,6 +265,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "CODIGO DE PRODUCTO"
 msgstr ""
@@ -266,6 +273,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "CODIGO ERP"
 msgstr ""
@@ -280,6 +288,7 @@ msgstr "JUZGADO / ENTIDAD"
 #. module: mod_request
 #: model:ir.model.fields.selection,name:mod_request.selection__mod_request__state__cancel
 #: model_terms:ir.ui.view,arch_db:mod_request.mod_request_form_check_list_supported
+#: model_terms:ir.ui.view,arch_db:mod_request.mod_request_report_date
 #: model_terms:ir.ui.view,arch_db:mod_request.view_mod_request_masive_paid_form
 #: model_terms:ir.ui.view,arch_db:mod_request.view_request_form
 msgid "Cancel"
@@ -314,6 +323,7 @@ msgid "Cod. Request"
 msgstr "Cod. Solicitud"
 
 #. module: mod_request
+#: model:ir.model.fields,field_description:mod_request.field_account_payment_lines_req__cod_requirement
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet_line__name
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_requirements__name_requirement
 msgid "Cod. Requirement"
@@ -327,6 +337,7 @@ msgstr "Cod. Liquidación"
 #. module: mod_request
 #: model:ir.model.fields.selection,name:mod_request.selection__mod_request__state__complete
 #: model_terms:ir.ui.view,arch_db:mod_request.view_mod_request_filter
+#: model_terms:ir.ui.view,arch_db:mod_request.view_mod_requirement_filter
 msgid "Complete"
 msgstr "Completado"
 
@@ -360,11 +371,13 @@ msgid "Court / Entity"
 msgstr "Juzgado / Entidad"
 
 #. module: mod_request
+#: model:ir.model.fields,field_description:mod_request.field_account_payment_lines_req__create_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request__create_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_checklist_supported_wizard__create_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet__create_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet_line__create_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_masive_paid__create_uid
+#: model:ir.model.fields,field_description:mod_request.field_mod_request_report_date_wizard__create_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_requirements__create_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_upload_judicial_purchased__create_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_upload_judicial_supported__create_uid
@@ -375,11 +388,13 @@ msgid "Created by"
 msgstr ""
 
 #. module: mod_request
+#: model:ir.model.fields,field_description:mod_request.field_account_payment_lines_req__create_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request__create_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_checklist_supported_wizard__create_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet__create_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet_line__create_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_masive_paid__create_date
+#: model:ir.model.fields,field_description:mod_request.field_mod_request_report_date_wizard__create_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_requirements__create_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_upload_judicial_purchased__create_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_upload_judicial_supported__create_date
@@ -416,6 +431,7 @@ msgstr "FECHA"
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "DEMANDANTE/DEMANDADO DEL CASO"
 msgstr ""
@@ -423,6 +439,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "DESCRIPCION DEL GASTO"
 msgstr ""
@@ -504,11 +521,13 @@ msgid "Diario"
 msgstr ""
 
 #. module: mod_request
+#: model:ir.model.fields,field_description:mod_request.field_account_payment_lines_req__display_name
 #: model:ir.model.fields,field_description:mod_request.field_mod_request__display_name
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_checklist_supported_wizard__display_name
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet__display_name
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet_line__display_name
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_masive_paid__display_name
+#: model:ir.model.fields,field_description:mod_request.field_mod_request_report_date_wizard__display_name
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_requirements__display_name
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_upload_judicial_purchased__display_name
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_upload_judicial_supported__display_name
@@ -541,6 +560,11 @@ msgid "Empty product or invoice fields"
 msgstr "Campo producto o factura vacíos"
 
 #. module: mod_request
+#: model_terms:ir.ui.view,arch_db:mod_request.view_requirement_tree
+msgid "Estado de Solicitud"
+msgstr ""
+
+#. module: mod_request
 #: model:ir.model.fields,field_description:mod_request.field_mod_request__expense_generated
 msgid "Expense Generated"
 msgstr "Gasto Generado"
@@ -554,6 +578,7 @@ msgstr "Hoja de gasto"
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_export.py:0
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "Export Date: %s"
 msgstr "Fecha de exportación: %s"
@@ -566,7 +591,20 @@ msgstr "Exportar a Excel"
 
 #. module: mod_request
 #. odoo-python
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
+#, python-format
+msgid "Exportación Del %s hasta %s"
+msgstr ""
+
+#. module: mod_request
+#: model_terms:ir.ui.view,arch_db:mod_request.mod_request_report_date
+msgid "Exportar a Excel"
+msgstr ""
+
+#. module: mod_request
+#. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "FECHA DE COMPROBANTE"
 msgstr ""
@@ -574,6 +612,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "FIRMA/OBSERVACIONES"
 msgstr ""
@@ -581,6 +620,16 @@ msgstr ""
 #. module: mod_request
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_masive_paid__date
 msgid "Fecha"
+msgstr ""
+
+#. module: mod_request
+#: model:ir.model.fields,field_description:mod_request.field_mod_request_report_date_wizard__date_from
+msgid "Fecha Inicio"
+msgstr ""
+
+#. module: mod_request
+#: model:ir.model.fields,field_description:mod_request.field_mod_request_report_date_wizard__date_to
+msgid "Fecha fin"
 msgstr ""
 
 #. module: mod_request
@@ -653,6 +702,7 @@ msgstr "Formato:"
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "GRUPO O DEUDOR PRINCIPAL AL QUE PERTENECE"
 msgstr ""
@@ -664,14 +714,7 @@ msgid "Generar Informe de Gastos"
 msgstr ""
 
 #. module: mod_request
-#: model:ir.actions.server,name:mod_request.action_mod_request_generate_liquidation
-msgid "Generar Informe de Liquidación"
-msgstr ""
-
-#. module: mod_request
 #: model:ir.model.fields.selection,name:mod_request.selection__mod_request__expense_generated__generated
-#: model:ir.model.fields.selection,name:mod_request.selection__mod_request__liquidation_generated__generated
-#: model:ir.model.fields.selection,name:mod_request.selection__mod_request_liquidation_sheet__state__generated
 msgid "Generated"
 msgstr "Generado"
 
@@ -679,6 +722,7 @@ msgstr "Generado"
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_export.py:0
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "Generic Excel Report"
 msgstr ""
@@ -707,11 +751,13 @@ msgid "Head of area Group Manager"
 msgstr "Grupo Jefe de Area"
 
 #. module: mod_request
+#: model:ir.model.fields,field_description:mod_request.field_account_payment_lines_req__id
 #: model:ir.model.fields,field_description:mod_request.field_mod_request__id
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_checklist_supported_wizard__id
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet__id
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet_line__id
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_masive_paid__id
+#: model:ir.model.fields,field_description:mod_request.field_mod_request_report_date_wizard__id
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_requirements__id
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_upload_judicial_purchased__id
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_upload_judicial_supported__id
@@ -724,6 +770,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "IMPORTE DE GASTO"
 msgstr ""
@@ -760,8 +807,25 @@ msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: mod_request
+#: model:ir.model.fields.selection,name:mod_request.selection__mod_request_liquidation_sheet__state__in_progress
+msgid "In Process"
+msgstr "En Proceso"
+
+#. module: mod_request
 #: model_terms:ir.ui.view,arch_db:mod_request.view_request_form
 msgid "Informe de Gastos"
+msgstr ""
+
+#. module: mod_request
+#: model:ir.actions.act_window,name:mod_request.mod_request_action_liquidation_report
+#: model:ir.ui.menu,name:mod_request.menu_hr_expense_report_liquidation
+#: model:ir.ui.menu,name:mod_request.mod_request_report_liquidation
+msgid "Informe de Liquidacion"
+msgstr ""
+
+#. module: mod_request
+#: model:ir.actions.server,name:mod_request.action_mod_request_generated_liquidation
+msgid "Informe de Liquidación"
 msgstr ""
 
 #. module: mod_request
@@ -772,8 +836,14 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: mod_request
+#: model:ir.model.fields,field_description:mod_request.field_mod_request_requirements__is_repayment
+msgid "Is Repayment"
+msgstr "Es reembolsable"
+
+#. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "JUZGADO/ENTIDAD"
 msgstr ""
@@ -789,11 +859,13 @@ msgid "Judicial"
 msgstr ""
 
 #. module: mod_request
+#: model:ir.model.fields,field_description:mod_request.field_account_payment_lines_req____last_update
 #: model:ir.model.fields,field_description:mod_request.field_mod_request____last_update
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_checklist_supported_wizard____last_update
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet____last_update
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet_line____last_update
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_masive_paid____last_update
+#: model:ir.model.fields,field_description:mod_request.field_mod_request_report_date_wizard____last_update
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_requirements____last_update
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_upload_judicial_purchased____last_update
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_upload_judicial_supported____last_update
@@ -804,11 +876,13 @@ msgid "Last Modified on"
 msgstr ""
 
 #. module: mod_request
+#: model:ir.model.fields,field_description:mod_request.field_account_payment_lines_req__write_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request__write_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_checklist_supported_wizard__write_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet__write_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet_line__write_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_masive_paid__write_uid
+#: model:ir.model.fields,field_description:mod_request.field_mod_request_report_date_wizard__write_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_requirements__write_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_upload_judicial_purchased__write_uid
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_upload_judicial_supported__write_uid
@@ -819,11 +893,13 @@ msgid "Last Updated by"
 msgstr ""
 
 #. module: mod_request
+#: model:ir.model.fields,field_description:mod_request.field_account_payment_lines_req__write_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request__write_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_checklist_supported_wizard__write_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet__write_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet_line__write_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_masive_paid__write_date
+#: model:ir.model.fields,field_description:mod_request.field_mod_request_report_date_wizard__write_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_requirements__write_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_upload_judicial_purchased__write_date
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_upload_judicial_supported__write_date
@@ -845,16 +921,22 @@ msgid "Lines"
 msgstr "Lineas"
 
 #. module: mod_request
+#: model:ir.model.fields,field_description:mod_request.field_account_payment__lines_req
+msgid "Lines Req"
+msgstr ""
+
+#. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "Liquidaciones"
 msgstr ""
 
 #. module: mod_request
-#: model:ir.model.fields,field_description:mod_request.field_mod_request__liquidation_generated
+#: model:ir.model.fields,field_description:mod_request.field_mod_request_requirements__liquidation_generated
 msgid "Liquidation Generated"
-msgstr "Liquidación Generado"
+msgstr ""
 
 #. module: mod_request
 #. odoo-python
@@ -874,6 +956,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "MATERIA DEL PROCESO"
 msgstr ""
@@ -1029,6 +1112,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "N° DE CUENTA O CONTRATO(20 DIGITOS)"
 msgstr ""
@@ -1036,6 +1120,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "N° DE DOCUMENTO"
 msgstr ""
@@ -1043,6 +1128,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "N° EXPEDIENTE"
 msgstr ""
@@ -1050,6 +1136,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "N° EXPEDIENTE ADMINISTRATIVO(ANTECEDENTES)"
 msgstr ""
@@ -1057,6 +1144,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "N° IDC"
 msgstr ""
@@ -1064,6 +1152,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "N° SINIESTRO"
 msgstr ""
@@ -1071,6 +1160,7 @@ msgstr ""
 #. module: mod_request
 #: model:ir.model.fields,field_description:mod_request.field_mod_request__num_operation
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_masive_paid__memo
+#: model_terms:ir.ui.view,arch_db:mod_request.view_account_payment_inherit
 msgid "Número de Operación"
 msgstr ""
 
@@ -1110,6 +1200,7 @@ msgstr "EXPEDIENTES"
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "PROVEEDOR"
 msgstr ""
@@ -1135,6 +1226,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_requirements__partner_id
 #: model_terms:ir.ui.view,arch_db:mod_request.report_mod_request
 #: model_terms:ir.ui.view,arch_db:mod_request.view_mod_request_filter
+#: model_terms:ir.ui.view,arch_db:mod_request.view_mod_requirement_filter
 #: model_terms:ir.ui.view,arch_db:mod_request.view_request_form
 msgid "Partner"
 msgstr "Cliente"
@@ -1145,16 +1237,27 @@ msgid "Partner :"
 msgstr "Cliente:"
 
 #. module: mod_request
+#: model:ir.model,name:mod_request.model_account_payment
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: mod_request
 #: model:ir.model.fields.selection,name:mod_request.selection__mod_request__expense_generated__pending
-#: model:ir.model.fields.selection,name:mod_request.selection__mod_request__liquidation_generated__pending
 #: model:ir.model.fields.selection,name:mod_request.selection__mod_request__state__pending
 #: model_terms:ir.ui.view,arch_db:mod_request.view_mod_request_filter
+#: model_terms:ir.ui.view,arch_db:mod_request.view_mod_requirement_filter
 msgid "Pending"
 msgstr "Pendiente"
 
 #. module: mod_request
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_masive_paid__partner_id
 msgid "Persona Asignada"
+msgstr ""
+
+#. module: mod_request
+#: model_terms:ir.ui.view,arch_db:mod_request.view_mod_request_filter
+#: model_terms:ir.ui.view,arch_db:mod_request.view_mod_requirement_filter
+msgid "Por Aprobar"
 msgstr ""
 
 #. module: mod_request
@@ -1193,6 +1296,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "RUC DE PROVEEDOR"
 msgstr ""
@@ -1205,6 +1309,7 @@ msgstr ""
 #. module: mod_request
 #: model:ir.model.fields.selection,name:mod_request.selection__mod_request__state__refused
 #: model_terms:ir.ui.view,arch_db:mod_request.view_mod_request_filter
+#: model_terms:ir.ui.view,arch_db:mod_request.view_mod_requirement_filter
 #: model_terms:ir.ui.view,arch_db:mod_request.view_request_form
 msgid "Refused"
 msgstr "Rechazado"
@@ -1213,6 +1318,19 @@ msgstr "Rechazado"
 #: model:ir.model.fields.selection,name:mod_request.selection__mod_request__process_request__repayment
 msgid "Repayment"
 msgstr "Reembolso"
+
+#. module: mod_request
+#: model:ir.actions.act_window,name:mod_request.mod_request_action_liquidation_report_excel
+#: model:ir.ui.menu,name:mod_request.mod_request_report_liquidation_excel
+msgid "Reporte de Liquidacion"
+msgstr ""
+
+#. module: mod_request
+#. odoo-python
+#: code:addons/mod_request/models/mod_request_requirements.py:0
+#, python-format
+msgid "Requerimiento ya tiene liquidacion %s - %s"
+msgstr ""
 
 #. module: mod_request
 #: model:ir.actions.report,name:mod_request.report_mod_request_action
@@ -1279,6 +1397,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "SITE"
 msgstr ""
@@ -1301,6 +1420,11 @@ msgid "Search Module Requirements"
 msgstr ""
 
 #. module: mod_request
+#: model_terms:ir.ui.view,arch_db:mod_request.mod_request_report_date
+msgid "Seleccionar Fechas"
+msgstr ""
+
+#. module: mod_request
 #: model:ir.model.fields,field_description:mod_request.field_mod_request__seller
 #: model_terms:ir.ui.view,arch_db:mod_request.view_request_form
 msgid "Seller"
@@ -1315,13 +1439,6 @@ msgstr "Solicitante:"
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_upload_judicial_purchased__state
 msgid "Send"
 msgstr "Enviado"
-
-#. module: mod_request
-#: model:ir.actions.act_window,name:mod_request.mod_request_action_liquidation_sheet
-#: model:ir.ui.menu,name:mod_request.menu_liquidation_sheet
-#: model:ir.ui.menu,name:mod_request.menu_liquidation_sheet_2
-msgid "Settlement Report"
-msgstr "Informe de Liquidación"
 
 #. module: mod_request
 #: model_terms:ir.ui.view,arch_db:mod_request.view_request_form
@@ -1344,7 +1461,7 @@ msgstr ""
 
 #. module: mod_request
 #. odoo-python
-#: code:addons/mod_request/models/mod_request.py:0
+#: code:addons/mod_request/models/mod_request_requirements.py:0
 #, python-format
 msgid "Solo debe Seleccionar Solicitudes en estado Completado"
 msgstr ""
@@ -1404,12 +1521,12 @@ msgstr ""
 #. module: mod_request
 #: model:ir.model.fields.selection,name:mod_request.selection__mod_request__state__subscriber
 #: model_terms:ir.ui.view,arch_db:mod_request.view_mod_request_filter
+#: model_terms:ir.ui.view,arch_db:mod_request.view_mod_requirement_filter
 msgid "Subscriber"
 msgstr "Abonado"
 
 #. module: mod_request
 #: model:ir.model.fields.selection,name:mod_request.selection__mod_request__state__support_to_approve
-#: model_terms:ir.ui.view,arch_db:mod_request.view_mod_request_filter
 #: model_terms:ir.ui.view,arch_db:mod_request.view_request_form
 msgid "Support to approve"
 msgstr "Enviar Sustento a Aprobar"
@@ -1417,12 +1534,14 @@ msgstr "Enviar Sustento a Aprobar"
 #. module: mod_request
 #: model:ir.model.fields.selection,name:mod_request.selection__mod_request__state__supported
 #: model_terms:ir.ui.view,arch_db:mod_request.view_mod_request_filter
+#: model_terms:ir.ui.view,arch_db:mod_request.view_mod_requirement_filter
 msgid "Supported"
 msgstr "Sustentado"
 
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "TIPO DE COMPROBANTE"
 msgstr ""
@@ -1430,6 +1549,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "TIPO DE GASTO"
 msgstr ""
@@ -1437,6 +1557,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "TIPO DE MONEDA"
 msgstr ""
@@ -1444,6 +1565,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "TIPO DE PRODUCTO"
 msgstr ""
@@ -1451,6 +1573,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "TIPO DE RAMO"
 msgstr ""
@@ -1458,6 +1581,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "TIPO DE SEGURO"
 msgstr ""
@@ -1465,6 +1589,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "TIPO DEL PROCESO"
 msgstr ""
@@ -1472,6 +1597,7 @@ msgstr ""
 #. module: mod_request
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #, python-format
 msgid "TIPO O AREA DE BANCA"
 msgstr ""
@@ -1514,6 +1640,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/mod_request/models/mod_request_export.py:0
 #: code:addons/mod_request/models/mod_request_liquidation_sheet_export.py:0
+#: code:addons/mod_request/wizard/mod_request_report_date_wizard.py:0
 #: model:ir.model.fields,field_description:mod_request.field_mod_request_liquidation_sheet__total_amount
 #, python-format
 msgid "Total"
@@ -1521,6 +1648,7 @@ msgstr ""
 
 #. module: mod_request
 #: model_terms:ir.ui.view,arch_db:mod_request.view_request_tree
+#: model_terms:ir.ui.view,arch_db:mod_request.view_requirement_tree
 msgid "Total Tax Included"
 msgstr "Total impuestos incluidos"
 
@@ -1597,6 +1725,11 @@ msgid "Website communication history"
 msgstr ""
 
 #. module: mod_request
+#: model:ir.model,name:mod_request.model_account_payment_lines_req
+msgid "account.payment.lines.req"
+msgstr ""
+
+#. module: mod_request
 #: model:ir.model,name:mod_request.model_mod_request_checklist_supported_wizard
 msgid "mod.request.checklist.supported.wizard"
 msgstr ""
@@ -1604,6 +1737,11 @@ msgstr ""
 #. module: mod_request
 #: model:ir.model,name:mod_request.model_mod_request_masive_paid
 msgid "mod.request.masive.paid"
+msgstr ""
+
+#. module: mod_request
+#: model:ir.model,name:mod_request.model_mod_request_report_date_wizard
+msgid "mod.request.report.date.wizard"
 msgstr ""
 
 #. module: mod_request
@@ -1632,6 +1770,14 @@ msgstr "Establecer como pendiente"
 #: model_terms:ir.ui.view,arch_db:mod_request.view_request_form
 msgid "set as pending?"
 msgstr "¿Establecer como pendiente?"
+
+#. module: mod_request
+#. odoo-python
+#: code:addons/mod_request/models/mod_request.py:0
+#: code:addons/mod_request/models/mod_request_requirements.py:0
+#, python-format
+msgid "test"
+msgstr ""
 
 #. module: mod_request
 #. odoo-python

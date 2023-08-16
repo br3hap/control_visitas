@@ -4,12 +4,19 @@
         <field name="name">mod.request.report.date.wizard</field>
         <field name="model">mod.request.report.date.wizard</field>
         <field name="arch" type="xml">
-            <form>
-                <group col="4" colspan="6">
-                    <field name="date_from"/>
-                    <newline/>
-                    <field name="date_to"/>
+            <form string="Seleccionar Fechas">
+                <group>
+                    <group>
+                        <field name="date_from"/>
+                    </group>
+                    <group>
+                        <field name="date_to"/>
+                    </group>
                 </group>
+                <footer>
+                    <button name="export_excel" string="Exportar a Excel" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
 			</form>
         </field>
     </record>

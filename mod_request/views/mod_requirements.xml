@@ -15,14 +15,14 @@
                     <field name="court_entity_requirement" />
                     <field name="ruc_dni_requirement" />
                     <field name="description_requirement" />
-                    <field name="state" string='Estado de Solicitud'/>
+                    <field name="state" string='Estado de Solicitud' widget="badge" decoration-success="state == 'complete'"/>
                     <field name="product_id" domain="[('can_be_expensed','=',True)]" />
                     <field name="account_move_id"
                         domain="[('move_type','=','in_invoice'),('state','=','posted'),('amount_residual','!=',0)]" />
                         <field name='partner_id'
                         optional="hide"/>
                     <field name='is_repayment'/>
-                    <field name='liquidation_generated' readonly="1"/>
+                    <field name='liquidation_generated' readonly="1" string='Liquidación' optional="hide"/>
                     <field name="amount_total" sum="Total Tax Included" widget="monetary" decoration-bf="1" optional="show"/>
                 </tree>
             </field>
@@ -34,6 +34,14 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
+                            <div class="oe_button_box" name="button_box">
+                                <button type="object"  name="view_liquidation"
+                                    class="oe_stat_button"
+                                    icon="fa-pencil-square-o" attrs="{'invisible':[('liqui_count', '=', 0)]}">
+                                    <field name="liqui_count" widget="statinfo" string="Liquidaciones"/>
+                                    <field name='liquidation_id' invisible="1"/>
+                                </button>
+                            </div>
                         <group name="group">
                             <group name="group_1">
                                 <field name="state_request" invisible="1" />

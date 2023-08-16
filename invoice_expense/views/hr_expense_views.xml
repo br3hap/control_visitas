@@ -112,6 +112,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <t t-if="o.lines_req">
+                            <t t-foreach="o.lines_req" t-as="req">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td><span t-field="req.cod_requirement"/></td>
+                                    <td><span t-field="req.amount_requirement"/></td>
+                                </tr>
+                            </t>
+                        </t>
+
                         <t t-foreach="invoices" t-as="inv">
                             <!-- MOVE -->
                             <t t-if="inv.move_type != 'entry'">

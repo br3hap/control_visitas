@@ -9,3 +9,4 @@ from . import res_config_settings
 from . import mod_request_liquidation_sheet
 from . import mod_request_liquidation_sheet_line
 from . import mod_request_liquidation_sheet_export
+from . import account_payment
