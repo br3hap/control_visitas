@@ -15,6 +15,12 @@ class mod_request_liquidation_sheet_line(models.Model):
     _description = _("Liquidation Sheet Line")
 
 
+    LIST_STATE = [
+        ('in_progress', 'In Process'),
+        ('completed', 'Completed')
+    ]
+
+
     liquidation_sheet_id = fields.Many2one('mod.request.liquidation.sheet', string='Cod. Liquidation', ondelete='cascade')
     request_id = fields.Many2one('mod.request',string='Cod. Request', ondelete='cascade')
     name = fields.Char(string='Cod. Requirement')
@@ -26,6 +32,17 @@ class mod_request_liquidation_sheet_line(models.Model):
     ruc_dni = fields.Char(string='RUC / DNI')
     description = fields.Char(string='Description')
     partner_id = fields.Many2one('res.partner', string='Partner')
+    state_line = fields.Selection(LIST_STATE, string = 'State' ,default='in_progress')
+
+
+    def action_completed(self):
+        for rec in self:
+            rec.write({'state_line':'completed'})
+    
+    def action_in_progress(self):
+        for rec in self:
+            rec.write({'state_line':'in_progress'})
+    
 
 
 

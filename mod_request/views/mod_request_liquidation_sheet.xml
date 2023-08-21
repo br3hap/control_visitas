@@ -5,10 +5,14 @@
             <field name="model">mod.request.liquidation.sheet</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="name" />
-                    <field name="employee_id" />
+                    <field name="name" string='Número'/>
+                    <field name="description" string='Descripción'/>
                     <field name="user_id" />
+                    <field name="date" string='Fecha'/>
+                    <field name="activity_ids" widget="list_activity" optional="show" string='Actividades'/>
+                    <field name="total_amount" invisible="1"/>
                     <field name="state" />
+                    <field name="amount_total" sum="Total Tax Included" widget="monetary" decoration-bf="1" optional="show" string='Monto'/>
                 </tree>
             </field>
         </record>
@@ -19,16 +23,25 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button name="action_back" string="Back" type="object" class="oe_highlight" attrs="{'invisible':[('state','=','in_progress')]}"/>
-                        <button name="action_completed" string="Completed" type="object" class="oe_highlight" attrs="{'invisible':[('state','=','completed')]}"/>
+                        <button name="action_back" confirm='¿Estas seguro de cambiar el estado de los requerimientos a En Proceso?' string="Back" type="object" class="oe_highlight" attrs="{'invisible':[('state','=','in_progress')]}"/>
+                        <button name="action_completed" confirm='¿Estas seguro de cambiar el estado de los requerimientos a Completado?' string="Completed" type="object" class="oe_highlight" attrs="{'invisible':[('state','=','completed')]}"/>
                         <field name="state" widget="statusbar" statusbar_visible="generated,completed" />
                     </header>
                     <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1"/>
+                                <field name="description"/>
+                                <!-- <field name='id' invisible='1' /> -->
+                                <!-- <field name='type_state' invisible='1'/> -->
+                            </h1>
+                        </div>
                         <group name="group">
                             <group name="group_1">
-                                <field name="name" />
-                                <field name="employee_id" />
                                 <field name="user_id" />
+                            </group>
+                            <group name="group_2">
+                                <field name="date" string='Fecha'/>
                             </group>
                         </group>
                         <notebook>
@@ -45,8 +58,16 @@
                                         <field name="description"/>
                                         <field name="partner_id"/>
                                         <field name="amount"/>
+                                        <button name="action_in_progress" type="object" class="fa fa-toggle-on" attrs="{'invisible':[('state_line','=','in_progress')]}"/>
+                                        <button name="action_completed" type="object" class="fa fa-toggle-off" attrs="{'invisible':[('state_line','=','completed')]}"/>
+                                        <field name="state_line" invisible='1'/>
                                     </tree>
                                 </field>
+                            </page>
+                            <page string="Seguimiento">
+                                <group name="group">
+                                    <field name="observation" string='Observación'/>
+                                </group>
                             </page>
                         </notebook>
                         <group class="oe_subtotal_footer oe_right" colspan="2" name="total_amount">
@@ -62,6 +83,34 @@
                 </form>
             </field>
         </record>
+
+
+        <record id="view_mod_liquidation_sheet_filter" model="ir.ui.view">
+            <field name="name">mod.request.liquidation.sheet.search</field>
+            <field name="model">mod.request.liquidation.sheet</field>
+            <field name="arch" type="xml">
+                <search string="Search Module Liquidation">
+                    <field name="name" filter_domain="[('name', 'ilike', self)]" string='Número'/>
+                    <field name="description" filter_domain="[('description', 'ilike', self)]" string='Descripción'/>
+                    <separator />
+                    <filter string="Fecha" name="date"
+                        date="date" />
+
+                    <separator />
+                                        
+                    <filter string="En Proceso" name="state" domain="[('state','ilike','in_progress')]" />
+                    <filter string="Completado" name="state" domain="[('state','ilike','completed')]" />
+                    <separator />
+                    <group expand="0" name="group_by" string="Group By">
+                        <filter name="user_id"
+                            string="Responsable"
+                            domain="[]"
+                            context="{'group_by' : 'user_id'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
 
         <record id="mod_request_action_liquidation_report_excel" model="ir.actions.act_window">
             <field name="name">Reporte de Liquidacion</field>

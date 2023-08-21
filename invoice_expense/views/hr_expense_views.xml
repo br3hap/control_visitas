@@ -103,8 +103,9 @@
                 <table class="table table-sm">
                     <thead>
                         <tr>
-                            <th><span>Fecha de Factura</span></th>
-                            <th><span>Número de Factura</span></th>
+                            <th><span>Fecha</span></th>
+                            <th><span>Documento</span></th>
+                            <th><span>Centro de Costo</span></th>
                             <th><span>Referencia</span></th>
                             <!-- Add a column if there are different currencies -->
                             <th t-if="otherCurrency" class="text-end"><span>Monto en Moneda</span></th>
@@ -115,9 +116,10 @@
                         <t t-if="o.lines_req">
                             <t t-foreach="o.lines_req" t-as="req">
                                 <tr>
-                                    <td></td>
-                                    <td></td>
+                                    <td><span t-field="req.date"/></td>
                                     <td><span t-field="req.cod_requirement"/></td>
+                                    <td><span t-field="req.account_analytic_id.name"/></td>
+                                    <td><span t-field="req.description"/></td>
                                     <td><span t-field="req.amount_requirement"/></td>
                                 </tr>
                             </t>
@@ -129,6 +131,7 @@
                                 <tr>
                                     <td><span t-field="inv.invoice_date"/></td>
                                     <td><span t-field="inv.name"/></td>
+                                    <td></td>
                                     <td><span t-field="inv.ref"/></td>
                                     <td t-if="otherCurrency"/>
                                     <td class="text-end"><span t-field="inv.amount_total"/></td>
@@ -138,6 +141,7 @@
                                     <t t-set="payment" t-value="par[2].move_id"/>
                                     <td><span t-field="payment.date"/></td>
                                     <td><span t-field="payment.name"/></td>
+                                    <td></td>
                                     <td><span t-field="payment.ref"/></td>
                                     <t t-set="amountPayment" t-value="-payment.amount_total"/>
                                     <t t-set="amountInvoice" t-value="-par[1]"/>

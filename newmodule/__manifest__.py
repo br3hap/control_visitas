@@ -28,6 +28,12 @@
         'views/views.xml',
         'views/templates.xml',
     ],
+
+        'assets': {
+        'web.assets_backend': [
+            'newmodule/static/src/js/*',
+        ],
+    },
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',

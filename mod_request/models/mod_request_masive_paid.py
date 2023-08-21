@@ -56,6 +56,9 @@ class mod_request_masive_paid(models.TransientModel):
                     'account_id':payment.id,
                     'cod_requirement':r.name_requirement,
                     'amount_requirement':r.amount_requirement,
+                    'date':r.date_request_requirement,
+                    'description':r.description_requirement,
+                    'account_analytic_id':r.account_analytic_id.id
                 }
                 payment.lines_req = [(0,0,data)]
             

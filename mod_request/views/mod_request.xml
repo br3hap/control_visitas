@@ -124,6 +124,7 @@
                                         <field name='court_entity_requirement' attrs="{'readonly':[('state_request','=',True)]}" />
                                         <field name='ruc_dni_requirement' attrs="{'readonly':[('state_request','=',True)]}" />
                                         <field name='description_requirement' attrs="{'readonly':[('state_request','=',True)]}" />
+                                        <field name='account_analytic_id' />
                                         <field name='is_repayment'/>
                                         <field name="product_id" domain="[('can_be_expensed','=',True)]" />
                                         <field name="account_move_id" domain="[('move_type','=','in_invoice'),('state','=','posted'),('amount_residual','!=',0)]" attrs="{'readonly':[('state_request_completed','=',True)]}" />

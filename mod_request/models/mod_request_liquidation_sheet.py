@@ -21,13 +21,31 @@ class mod_request_liquidation_sheet(models.Model):
     ]
 
 
-    name = fields.Char(string='Cod. Settlement', readonly=True, required=True, copy=False, default='New')
-    employee_id = fields.Many2one('hr.employee', string='Employee')
-    user_id = fields.Many2one('res.users', string='Responsible')
+    name = fields.Char(string='Cod. Settlement', required=True, copy=False, default='New')
+    description = fields.Char(string='Descripcion', default='Informe de Liquidación')
+    user_id = fields.Many2one('res.users', string='Responsible', default=lambda self: self.env.user)
     state = fields.Selection(LIST_STATE, string = 'State' ,default='in_progress')
     line_ids = fields.One2many('mod.request.liquidation.sheet.line','liquidation_sheet_id', string='Lines')
     currency_id = fields.Many2one('res.currency')
     total_amount = fields.Monetary(string='Total', compute='_compute_total_amount', currency_field='currency_id')
+    date = fields.Datetime(string='Date',copy = False, default = lambda self: fields.datetime.now())
+    observation = fields.Text(string='Observation')
+    amount_total = fields.Monetary(string="Amount", compute='_compute_amounts', tracking=4)
+
+
+    def name_get(self):
+        result = []
+        for rec in self:
+            result.append((rec.id,'%s / %s' % (rec.description, rec.name)))
+        return result
+
+
+    @api.depends('line_ids.amount')
+    def _compute_amounts(self):
+        for rec in self:
+            rec.amount_total = rec.total_amount
+
+    
 
 
     @api.model
@@ -45,8 +63,14 @@ class mod_request_liquidation_sheet(models.Model):
 
     
     def action_completed(self):
+        for rec in self:
+            for line in rec.line_ids:
+                line.state_line = 'completed'
         self.write({'state':'completed'})
 
     def action_back(self):
+        for rec in self:
+            for line in rec.line_ids:
+                line.state_line = 'in_progress'
         self.write({'state':'in_progress'})
 

@@ -1,23 +1,17 @@
 # -*- coding: utf-8 -*-
 
-# from odoo import models, fields, api
+from odoo import models, fields, api, _
+import requests
+from odoo.http import request
+from odoo.exceptions import UserError
+import base64
+from datetime import datetime, date
+import logging
+_logger = logging.getLogger(__name__)   
 
-# class StockMoveLine(models.Model):
-#     _inherit = 'stock.move.line'
+class mod_request_inherit(models.Model):
+    _inherit = 'mod.request'
+    _description = _("Requirements and Request")
 
-#     name_stock = fields.Char('Nombre de Stock')
-
-
-# class newmodule(models.Model):
-#     _name = 'newmodule.newmodule'
-#     _description = 'newmodule.newmodule'
-
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
+    def button_function(self):
+        _logger.warning('Presionaste el boton')

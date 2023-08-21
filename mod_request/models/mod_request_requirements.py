@@ -31,6 +31,8 @@ class mod_request_requirements(models.Model):
     is_repayment = fields.Boolean(string='Is Repayment')
     liquidation_generated = fields.Boolean(string='Liquidation Generated', default=False)
     amount_total = fields.Float(string="Amount", compute='_compute_amounts', tracking=4)
+    account_analytic_id = fields.Many2one('account.analytic.account', string='Cuenta Analítica')
+    
 
     def _compute_count_payment(self):
         for rec in self:
@@ -143,7 +145,7 @@ class mod_request_requirements(models.Model):
                 'name':line.name_requirement,
                 'case':line.case_requirement,
                 'proceedings':line.proceedings_requirement,
-                'date':line.date_request_requirement,
+                # 'date':line.date_request_requirement,
                 'court_entity':line.court_entity_requirement,
                 'ruc_dni':line.ruc_dni_requirement,
                 'description':line.description_requirement,

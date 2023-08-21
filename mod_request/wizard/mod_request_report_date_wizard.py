@@ -16,7 +16,7 @@ class mod_request_report_date(models.TransientModel):
     date_from =   fields.Date('Fecha Inicio', required=True)
     date_to   =   fields.Date('Fecha fin', required=True)
     file_data = fields.Binary('File', readonly=True)
-    
+    partner_id = fields.Many2one('res.partner', string='Cliente')    
 
     @api.model
     def get_default_date_model(self):
@@ -74,6 +74,7 @@ class mod_request_report_date(models.TransientModel):
         data = self.read()[0]
         date_from = data['date_from']
         date_to = data['date_to']
+        partner_id = data['partner_id']
 
         fp = BytesIO()
         workbook = xlsxwriter.Workbook(fp)
@@ -139,8 +140,12 @@ class mod_request_report_date(models.TransientModel):
             column += 1
 
         data_list = []
-        sheet_env=self.env['mod.request.liquidation.sheet'].search([('create_date','>=',date_from),('create_date','<=',date_to)])
-        for l in sheet_env.line_ids:
+        if partner_id:
+            lines_env= self.env['mod.request.liquidation.sheet.line'].search([('date','>=',date_from),('date','<=', date_to),('partner_id','=',partner_id[0])])
+        else:
+            lines_env= self.env['mod.request.liquidation.sheet.line'].search([('date','>=',date_from),('date','<=', date_to)])   
+
+        for l in lines_env:
             data_list.append([
                     l.partner_id.name or '',
                     '',

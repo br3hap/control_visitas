@@ -21,3 +21,7 @@ class account_payment_lines_req(models.Model):
     account_id = fields.Many2one('account.payment', ondelete='cascade')
     cod_requirement = fields.Char('Cod. Requirement')
     amount_requirement = fields.Float('Amount')
+    date = fields.Date(string='Date',copy = False)
+    description = fields.Char(string='Description')
+    account_analytic_id = fields.Many2one('account.analytic.account', string='Cuenta Analítica')
+

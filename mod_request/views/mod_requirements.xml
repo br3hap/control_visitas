@@ -42,12 +42,15 @@
                                     <field name='liquidation_id' invisible="1"/>
                                 </button>
                             </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name_requirement" readonly="1"/>                            
+                            </h1>
+                        </div>
                         <group name="group">
                             <group name="group_1">
                                 <field name="state_request" invisible="1" />
                                 <field name="state_request_completed" invisible="1" />
-                                <field name="name_requirement"
-                                    readonly="1" />
                                 <field name="case_requirement"
                                     attrs="{'readonly':[('state_request','=',True)]}" />
                                 <field name="proceedings_requirement"
@@ -71,13 +74,18 @@
                                     attrs="{'readonly':[('state_request','=',True)]}" />
                                 <field name='partner_id' optional="hide"/>
                                 <field name='is_repayment'/>
-                                <field name='liquidation_generated' readonly="1"/>
+                                <field name='liquidation_generated' readonly="1" string='Liquidación Generada'/>
+                                <field name='account_analytic_id' readonly="1" string='Cuenta Analítica'/>
                             </group>
                         </group>
-                        <group name="group_2">
-                            <field name="json_text"
-                                readonly="1"/>
-                        </group>
+                        <notebook>
+                            <page string='Mas Información'>
+                                <group name="group_2">
+                                    <field name="json_text"
+                                        readonly="1"/>
+                                </group>
+                            </page>
+                        </notebook>
                     </sheet>
                     <div class="o_attachment_preview"/>
                     <div class="oe_chatter">

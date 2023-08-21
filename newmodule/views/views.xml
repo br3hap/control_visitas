@@ -1,19 +1,19 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="newmodule.list">
-      <field name="name">newmodule list</field>
-      <field name="model">newmodule.newmodule</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
+
+    <record id="view_mod_request_inherit" model="ir.ui.view">
+        <field name="name">view.mod.request.form</field>
+        <field name="model">mod.request</field>
+        <field name="inherit_id" ref="mod_request.view_request_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='back_function']" position="after">
+                <button name='button_function' string="Nuevo Boton" type="object" class="oe_highlight"/>
+            </xpath>
+
+        </field>
     </record>
--->
+
 
     <!-- actions opening views on models -->
 <!--

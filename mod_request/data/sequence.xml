@@ -3,7 +3,7 @@
         <record id='seq_request_liquidation' model='ir.sequence'>
             <field name='name'>Request Sequence Liquidation</field>
             <field name='code'>mod.request.liquidation</field>
-            <field name='prefix'>Informe de Liquidación-</field>
+            <field name='prefix'>LIQ-</field>
             <field name='padding'>5</field>
             <field name='company_id' eval='False' />
         </record>
