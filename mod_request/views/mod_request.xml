@@ -205,9 +205,9 @@
                     <separator />
                     <filter string="Pending" name="state" domain="[('state','ilike','pending')]" />
                     <filter string="Subscriber" name="state" domain="[('state','ilike','subscriber')]" />
+                    <filter string="Por Aprobar" name="state" domain="[('state','ilike','support_to_approve')]" />
                     <filter string="Supported" name="state" domain="[('state','ilike','supported')]" />
                     <filter string="Complete" name="state" domain="[('state','ilike','complete')]" />
-                    <filter string="Por Aprobar" name="state" domain="[('state','ilike','support_to_approve')]" />
                     <filter string="Refused" name="state" domain="[('state','ilike','refused')]" />
 
 

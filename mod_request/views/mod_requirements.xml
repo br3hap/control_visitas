@@ -103,6 +103,9 @@
             <field name="arch" type="xml">
                 <search string="Search Module Requirements">
                     <field name="name_requirement" filter_domain="[('name_requirement', 'ilike', self)]" />
+                    <field name="partner_id" filter_domain="[('partner_id', 'ilike', self)]" />
+                    <!-- <field name="liquidation_generated" filter_domain="[('liquidation_generated', '=', True)]" /> -->
+                    <!-- <field name='liquidation_generated' invisible="1"/> -->
                     <!-- <field name="mod_request_id" filter_domain="[('mod_request_id', 'ilike', self)]" />
                     <field name="name_requirement"
                         filter_domain="[('name_requirement', 'ilike', self)]" />
@@ -115,6 +118,11 @@
                     <field name="ruc_dni_requirement"
                         filter_domain="[('ruc_dni_requirement', 'ilike', self)]" /> -->
                     <separator />
+                    <filter string="Con Liquidación" name="liquidation_generated"
+                        domain="[('liquidation_generated','=',True)]" />
+                    <filter string="Sin Liquidación" name="liquidation_generated"
+                        domain="[('liquidation_generated','=',False)]" />
+                    <separator />
                     <filter string="Date Request Requirement" name="date_request_requirement"
                         date="date_request_requirement" />
 
@@ -122,9 +130,9 @@
                                         
                     <filter string="Pending" name="state" domain="[('state','ilike','pending')]" />
                     <filter string="Subscriber" name="state" domain="[('state','ilike','subscriber')]" />
+                    <filter string="Por Aprobar" name="state" domain="[('state','ilike','support_to_approve')]" />
                     <filter string="Supported" name="state" domain="[('state','ilike','supported')]" />
                     <filter string="Complete" name="state" domain="[('state','ilike','complete')]" />
-                    <filter string="Por Aprobar" name="state" domain="[('state','ilike','support_to_approve')]" />
                     <filter string="Refused" name="state" domain="[('state','ilike','refused')]" />
                     <separator />
                     <group expand="0" name="group_by" string="Group By">

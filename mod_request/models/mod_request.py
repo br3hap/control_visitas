@@ -254,6 +254,7 @@ class mod_request(models.Model):
                                 'accounting_date': fecha_expense,
                                 'product_id': line.product_id.id,
                                 'sheet_id': self.expense_sheet_id.id,
+                                'people_id':line.partner_id.id
                 }
                 hr_expense_env.create(data_expense)
 
@@ -271,6 +272,8 @@ class mod_request(models.Model):
             if is_enable:
                 expense_sheet_id.action_submit_sheet()
                 expense_sheet_id.approve_expense_sheets()
+                # expense_sheet_id.action_sheet_move_create()
+
         return {
             'name': _('test'),
             'view_type': 'form',
@@ -346,6 +349,7 @@ class mod_request(models.Model):
                                     'accounting_date': fecha_expense,
                                     'product_id': line.product_id.id,
                                     'sheet_id': expense_sheet_id.id,
+                                    'people_id':line.partner_id.id
                     }
                     hr_expense_env.create(data_expense)
 
@@ -363,6 +367,7 @@ class mod_request(models.Model):
         if is_enable:
             expense_sheet_id.action_submit_sheet()
             expense_sheet_id.approve_expense_sheets()
+            # expense_sheet_id.action_sheet_move_create()
         
         return {
                 'name': _('test'),

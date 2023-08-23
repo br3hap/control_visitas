@@ -32,7 +32,7 @@ class mod_request_requirements(models.Model):
     liquidation_generated = fields.Boolean(string='Liquidation Generated', default=False)
     amount_total = fields.Float(string="Amount", compute='_compute_amounts', tracking=4)
     account_analytic_id = fields.Many2one('account.analytic.account', string='Cuenta Analítica')
-    
+
 
     def _compute_count_payment(self):
         for rec in self:
@@ -40,6 +40,7 @@ class mod_request_requirements(models.Model):
                 rec.liqui_count = 1
             else:
                 rec.liqui_count = 0
+                rec.liquidation_generated = False
 
     liqui_count = fields.Integer(string="Contador de Liquidación", compute="_compute_count_payment")
     liquidation_id = fields.Many2one('mod.request.liquidation.sheet', 'Liquidación')
@@ -134,7 +135,6 @@ class mod_request_requirements(models.Model):
         liquidation_sheet_id = liquidation_sheet_env.create(data_liquidation_sheet)
 
 
-        self.liquidation_id = liquidation_sheet_id.id
         for line in self:
             if line.mod_request_id.state != 'complete':
                 raise UserError(_("Solo debe Seleccionar Solicitudes en estado Completado"))
@@ -155,6 +155,7 @@ class mod_request_requirements(models.Model):
             }
             liquidation_sheet_line_env.create(data_liquidation_sheet_line)
             line.liquidation_generated = True
+        self.liquidation_id = liquidation_sheet_id.id
 
         return {
                 'name': _('test'),

@@ -290,7 +290,7 @@ class Main(http.Controller):
                 #             'file_purchased':file_base64,
                 #             'file_name_purchased':file.filename
                 #         })
-                if name_request.state == 'purchased':
+                if name_request.state == 'subscriber':
                     file_exists = self.file_request_judicial_supported_exists(name_request.id, file.filename)
                     if file_exists:
                         file_exists.sudo().write({

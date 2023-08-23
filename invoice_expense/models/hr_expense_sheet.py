@@ -20,6 +20,17 @@ class hr_expense_sheet(models.Model):
     show_hide_post_seat = fields.Boolean(string='Public seat', compute = '_compute_show_hide_post_seat')
     hide_pay_voucher = fields.Boolean('Hide pay vouchers')
     hide_post_seat = fields.Boolean('Hide post seat')
+
+    def approve_expense_sheets(self):
+        self._check_can_approve()
+
+        self._validate_analytic_distribution()
+        duplicates = self.expense_line_ids.duplicate_expense_ids.filtered(lambda exp: exp.state in ['approved', 'done'])
+        if False: #duplicates:
+            action = self.env["ir.actions.act_window"]._for_xml_id('hr_expense.hr_expense_approve_duplicate_action')
+            action['context'] = {'default_sheet_ids': self.ids, 'default_expense_ids': duplicates.ids}
+            return action
+        self._do_approve()
     
 
     def action_sheet_move_create(self):
