@@ -44,6 +44,7 @@ class mod_request_requirements(models.Model):
 
     liqui_count = fields.Integer(string="Contador de Liquidación", compute="_compute_count_payment")
     liquidation_id = fields.Many2one('mod.request.liquidation.sheet', 'Liquidación')
+    state_liquidation = fields.Selection(related='liquidation_id.state')
 
     
 
@@ -60,7 +61,10 @@ class mod_request_requirements(models.Model):
     def name_get(self):
         result = []
         for rec in self:
-            result.append((rec.id,'%s / %s' % (rec.mod_request_id.name, rec.name_requirement)))
+            if self.env.context.get('name_rq', False):
+                result.append((rec.id,'%s / %s' % (rec.mod_request_id.name, rec.name_requirement)))
+            else:
+                result.append((rec.id,'%s' % (rec.name_requirement)))
         return result
     
 
@@ -138,7 +142,8 @@ class mod_request_requirements(models.Model):
         for line in self:
             if line.mod_request_id.state != 'complete':
                 raise UserError(_("Solo debe Seleccionar Solicitudes en estado Completado"))
-            if line.liquidation_generated:
+            # if line.liquidation_generated:
+            if line.state_liquidation:
                 raise UserError(_("Requerimiento ya tiene liquidacion %s - %s" %(line.mod_request_id.name,line.name_requirement)))
             data_liquidation_sheet_line = {
                 'request_id':line.mod_request_id.id,

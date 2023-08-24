@@ -16,8 +16,8 @@ class mod_request_liquidation_sheet_line(models.Model):
 
 
     LIST_STATE = [
-        ('in_progress', 'In Process'),
-        ('completed', 'Completed')
+        ('in_progress', 'En Proceso'),
+        ('completed', 'Completado')
     ]
 
 

@@ -40,7 +40,6 @@
         'views/mod_request_liquidation_sheet.xml',
         'data/sequence.xml',
         'views/account_payment.xml',
-        'views/hr_expense.xml'
         
         # 'views/res_users.xml',
     ],

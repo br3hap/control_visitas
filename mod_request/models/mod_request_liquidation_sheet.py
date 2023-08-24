@@ -15,9 +15,11 @@ class mod_request_liquidation_sheet(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin', 'analytic.mixin']
     _description = _("Liquidation Sheet")
 
+    _order = 'create_date desc'
+
     LIST_STATE = [
-        ('in_progress', 'In Process'),
-        ('completed', 'Completed')
+        ('in_progress', 'En Proceso'),
+        ('completed', 'Completado')
     ]
 
 

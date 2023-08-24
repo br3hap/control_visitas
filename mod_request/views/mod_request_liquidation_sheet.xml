@@ -11,7 +11,9 @@
                     <field name="date" string='Fecha'/>
                     <field name="activity_ids" widget="list_activity" optional="show" string='Actividades'/>
                     <field name="total_amount" invisible="1"/>
-                    <field name="state" />
+                    <field name="state" widget="badge" 
+                                    decoration-info="state == 'in_progress'"
+                                    decoration-success="state == 'completed'" />
                     <field name="amount_total" sum="Total Tax Included" widget="monetary" decoration-bf="1" optional="show" string='Monto'/>
                 </tree>
             </field>
@@ -23,8 +25,8 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button name="action_back" confirm='¿Estas seguro de cambiar el estado de los requerimientos a En Proceso?' string="Back" type="object" class="oe_highlight" attrs="{'invisible':[('state','=','in_progress')]}"/>
-                        <button name="action_completed" confirm='¿Estas seguro de cambiar el estado de los requerimientos a Completado?' string="Completed" type="object" class="oe_highlight" attrs="{'invisible':[('state','=','completed')]}"/>
+                        <button name="action_back" confirm='¿Estas seguro de cambiar el estado de seguimiento de todas las liquidaciones a EN PROCESO?' string="Back" type="object" class="oe_highlight" attrs="{'invisible':[('state','=','in_progress')]}"/>
+                        <button name="action_completed" confirm='¿Estas seguro de cambiar el estado de seguimiento de todas las liquidaciones a COMPLETADO?' string="Completed" type="object" class="oe_highlight" attrs="{'invisible':[('state','=','completed')]}"/>
                         <field name="state" widget="statusbar" statusbar_visible="generated,completed" />
                     </header>
                     <sheet>
@@ -60,7 +62,11 @@
                                         <field name="amount"/>
                                         <button name="action_in_progress" type="object" class="fa fa-toggle-on" attrs="{'invisible':[('state_line','=','in_progress')]}"/>
                                         <button name="action_completed" type="object" class="fa fa-toggle-off" attrs="{'invisible':[('state_line','=','completed')]}"/>
-                                        <field name="state_line" invisible='1'/>
+                                        <field name="state_line" 
+                                            widget="badge" 
+                                            decoration-info="state_line == 'in_progress'"
+                                            decoration-success="state_line == 'completed'"
+                                            string='Seguimiento'/>
                                     </tree>
                                 </field>
                             </page>
@@ -92,6 +98,7 @@
                 <search string="Search Module Liquidation">
                     <field name="name" filter_domain="[('name', 'ilike', self)]" string='Número'/>
                     <field name="description" filter_domain="[('description', 'ilike', self)]" string='Descripción'/>
+                    <field name="user_id" filter_domain="[('user_id', 'ilike', self)]" string='Responsable'/>
                     <separator />
                     <filter string="Fecha" name="date"
                         date="date" />
@@ -106,6 +113,10 @@
                             string="Responsable"
                             domain="[]"
                             context="{'group_by' : 'user_id'}" />
+                        <filter name="state"
+                            string="Estado"
+                            domain="[]"
+                            context="{'group_by' : 'state'}" />
                     </group>
                 </search>
             </field>

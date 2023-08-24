@@ -15,7 +15,13 @@
                     <field name="currency_id" />
                     <field name="amount_compute" invisible="1"/>
                     <field name="amount_total" sum="Total Tax Included" widget="monetary" decoration-bf="1" optional="show"/>
-                    <field name="state" widget="badge" decoration-success="state == 'complete'" decoration-danger="state == 'cancel'" />
+                    <field name="state" widget="badge" 
+                                decoration-success="state == 'complete'"
+                                decoration-info="state == 'pending'"
+                                decoration-warning="state == 'subscriber'"
+                                decoration-danger="state == 'cancel'" 
+                                decoration-primary="state == 'supported'" 
+                                />
                     <field name="process_request" />
                     <!-- <field name="expense_generated" widget="badge" decoration-info="expense_generated == 'generated'" optional="show" string="Gasto"/> -->
                     <!-- <field name="liquidation_generated_b" optional="hide" string="Liquidación"/> -->
@@ -156,21 +162,47 @@
                                     <tree>
                                         <field name='file_name_purchased' readonly='1' />
                                         <field name='file_purchased' filename='file_name_purchased' invisible='1' />
-                                        <field name='date' readonly='1' />
-                                        <field name='state' readonly='1' />
+                                        <field name='date' readonly='1' string='Fecha de creación'/>
+                                        <field name='state' invisible='1' />
                                     </tree>
                                 </field>
                             </page>
                             <page string="File Supported" name="file_supported" attrs="{'invisible':[('type_request','=','administrative')]}">
                                 <field name='file_supported_ids' attrs="{'readonly':[('state','in',('supported','complete'))]}">
                                     <form>
-                                        <field name='file_supported' filename='file_name_supported' />
-                                        <field name='file_name_supported' invisible='1' />
+                                        <group>
+                                            <group>
+                                                <field name='mod_request_id' invisible='1'/>
+                                                <field name='file_supported' filename='file_name_supported' />
+                                                <field name='file_name_supported' invisible='1' />
+                                                <field name='amount_remaining' invisible='1' />
+                                                <field name='requirement_id' string="Requerimiento" domain="[('mod_request_id','=',mod_request_id)]"/>
+                                                <field name='amount' string='Monto'/>
+                                            </group>
+                                            <group>
+                                                <field name='date' string='Fecha de Creación'/>
+                                                <field name='description' string='Descripción'/>
+
+                                            </group>
+                                        </group>
                                     </form>
                                     <tree>
-                                        <field name='file_name_supported' readonly="1" />
+                                        <field name='requirement_id' string='Requerimiento'/>
+                                        <field name='file_name_supported'  />
                                         <field name='file_supported' filename='file_name_supported' invisible='1' />
-                                        <field name='date' readonly='1' />
+                                        <field name='description' string='Descripción' optional="hide"/>
+                                        <field name='amount' string='Monto' />
+                                        <field name='amount_remaining' string='Monto Restante' optional="hide"/>
+                                        <field name='user_id' string='Responsable' readonly='1'/>
+                                        <field name='date' string='Fecha de Creación'/>
+                                        <button name="action_in_progress" type="object" class="fa fa-toggle-on" attrs="{'invisible':[('state_line','=','in_progress')]}" placeholder='Completado'/>
+                                        <button name="action_completed" type="object" class="fa fa-toggle-off" attrs="{'invisible':[('state_line','=','completed')]}" placeholder='En proceso'/>
+                                        <field name="state_line" 
+                                            widget="badge" 
+                                            decoration-info="state_line == 'in_progress'"
+                                            decoration-success="state_line == 'completed'"
+                                            string='Seguimiento'/>
+
                                     </tree>
                                 </field>
                             </page>
@@ -196,6 +228,7 @@
                     <field name="name_applicant" filter_domain="[('name_applicant', 'ilike', self)]" />
                     <field name="type_request" filter_domain="[('type_request', 'ilike', self)]" />
                     <field name="partner_id" filter_domain="[('partner_id', 'ilike', self)]" />
+                    <field name="currency_id" filter_domain="[('currency_id', 'ilike', self)]" />
                     <separator />
                     <filter string="Type Judicial" name="type_request" domain="[('type_request','like','judicial')]" />
                     <filter string="Type Administrative" name="type_request" domain="[('type_request','like','administrative')]" />
@@ -209,11 +242,17 @@
                     <filter string="Supported" name="state" domain="[('state','ilike','supported')]" />
                     <filter string="Complete" name="state" domain="[('state','ilike','complete')]" />
                     <filter string="Refused" name="state" domain="[('state','ilike','refused')]" />
+                    <separator />
+                    <filter string="Compra" name="process_request" domain="[('process_request','ilike','purchase')]" />
+                    <filter string="Transferencia" name="process_request" domain="[('process_request','ilike','transfer')]" />
+                    <filter string="Reembolso" name="process_request" domain="[('process_request','ilike','repayment')]" />
+
 
 
                     <separator />
                     <group expand="0" name="group_by" string="Group By">
                         <filter name="partner_id" string="Partner" domain="[]" context="{'group_by' : 'partner_id'}" />
+                        <filter name="process_request" string="Proceso de Solicitud" domain="[]" context="{'group_by' : 'process_request'}" />
                     </group>
                 </search>
             </field>
