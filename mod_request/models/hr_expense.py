@@ -19,6 +19,21 @@ class hr_expense_inherit(models.Model):
     account_analytic_id = fields.Many2one('account.analytic.account', string='Cuenta Analítica')
 
 
+    def _convert_to_tax_base_line_dict(self, base_line=None, currency=None, price_unit=None, quantity=None):
+        self.ensure_one()
+        return self.env['account.tax']._convert_to_tax_base_line_dict(
+            base_line,
+            currency=currency or self.currency_id,
+            product=self.product_id,
+            taxes=self.tax_ids,
+            price_unit=price_unit or self.total_amount_company,
+            quantity=quantity or 1,
+            account=self.account_id,
+            analytic_distribution=self.analytic_distribution,
+            extra_context={'force_price_include': True},
+        )
+
+
 
 
 class hr_expense_sheet_inherit(models.Model):
