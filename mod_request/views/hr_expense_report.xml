@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_hr_expense_inherit" inherit_id="hr_expense.report_expense_sheet">
+        <xpath expr="//div[@class='page']/table[@class='table table-sm']" position="replace">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th class="text-center">Ref.</th>
+                    <th>Precio unitario</th>
+                    <!-- <th>Taxes</th> -->
+                    <th class="text-center">Cant.</th>
+                    <th class="text-end">Precio</th>
+                    <th t-if="o.is_multiple_currency" class="text-end">Price in Company Currency</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr t-foreach="o.expense_line_ids" t-as="line">
+                    <td><span t-field="line.date"/></td>
+                    <td>
+                        <span t-field="line.name"/>
+                        <span t-field="line.description"/><br/>
+                        <span>
+                            <div t-foreach="line.analytic_distribution" t-as="distribution">
+                                <t t-esc="line.env['account.analytic.account'].browse(int(distribution))[0].name"/>: <t t-esc="line.analytic_distribution.get(distribution)"/>
+                            </div>
+                        </span>
+                    </td>
+                    <td style="text-center">
+                        <span t-field="line.description_rq"/>
+                    </td>
+                    <td style="text-center">
+                        <span t-field="line.reference"/>
+                    </td>
+                    <td>
+                        <span t-field="line.unit_amount"/>
+                    </td>
+                    <!-- <td>
+                        <t t-foreach="line.tax_ids" t-as="tax">
+                            <t t-if="tax.description">
+                            <span t-field="tax.description"/>
+                            </t>
+                            <t t-if="not tax.description">
+                            <span t-field="tax.name"/>
+                            </t>
+                        </t>
+                    </td> -->
+                    <td class="text-center">
+                        <span t-field="line.quantity"/>
+                    </td>
+                    <td class="text-end">
+                        <span t-field="line.total_amount"
+                            t-options='{"widget": "monetary", "display_currency": line.currency_id}'/>
+                    </td>
+                    <td t-if="o.is_multiple_currency" class="text-end">
+                        <span t-field="line.total_amount_company"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </xpath>
+    </template>
+
+</odoo>

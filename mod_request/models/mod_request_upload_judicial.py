@@ -40,23 +40,50 @@ class mod_request_upload_judicial_supported(models.Model):
     amount_remaining = fields.Float(string="Amount Remaining", compute='_compute_amount_remaining')
     state_line = fields.Selection(LIST_STATE, string = 'State' ,default='in_progress')
     description = fields.Text('Description')
-
-    @api.onchange('requirement_id')
-    def _onchange_amount(self):
-        for rec in self:
-            rec.amount = rec.requirement_id.amount_requirement
+    number_doc = fields.Char('Number Doc')
+    
 
     @api.onchange('amount')
     def _compute_amount_remaining(self):
         for rec in self:
             rec.amount_remaining = rec.requirement_id.amount_requirement - rec.amount
 
+    @api.onchange('requirement_id')
+    def _onchange_amount(self):
+        for rec in self:
+            rec.amount = rec.requirement_id.qty_sin_sustentar
+
+
+    # def write(self, vals):
+    #     res = super(mod_request_upload_judicial_supported, self).write(vals)
+    #     for r in self.requirement_id:
+    #         if self.amount > r.qty_sin_sustentar:
+    #             raise UserError('Es mayor es edicion')
+
+    #     return res
+    
+    # def create(self, vals):
+    #     env_requirement = self.env['mod.request.requirements']
+    #     amount = env_requirement.search([('id','=',self.requirement_id.id)]).qty_sin_sustentar
+    #     if self.amount > amount:
+    #         raise UserError('Es mayor es creacio')
+
+    #     res = super(mod_request_upload_judicial_supported, self).create(vals)
+    #     # amount = env_requirement.search([('id','=',res.requirement_id.id)]).qty_sin_sustentar
+    #     _logger.warning('res', res.amount,res.requirement_id.id, amount)
+
+    #     # if res.amount > amount:
+    #     #     raise UserError('Es mayor es creacio')
+
+    #     return res
 
 
 
 
     def action_completed(self):
         for rec in self:
+            if rec.amount_remaining < 0.00:
+                raise UserError('el monto restante es negativo')
             rec.write({'state_line':'completed'})
     
     def action_in_progress(self):

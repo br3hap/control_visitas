@@ -96,6 +96,8 @@
             <field name="model">mod.request.liquidation.sheet</field>
             <field name="arch" type="xml">
                 <search string="Search Module Liquidation">
+                    <filter string="Hoy" name="date" domain="[('date','&lt;=',time.strftime('%Y-%m-%d 23:59:59')),
+                                                                                    ('date','&gt;=',time.strftime('%Y-%m-%d 00:00:00'))]"/>
                     <field name="name" filter_domain="[('name', 'ilike', self)]" string='Número'/>
                     <field name="description" filter_domain="[('description', 'ilike', self)]" string='Descripción'/>
                     <field name="user_id" filter_domain="[('user_id', 'ilike', self)]" string='Responsable'/>

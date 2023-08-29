@@ -12,3 +12,4 @@ access_mod_request_liquidation,mod_request.mod_request_liquidation,model_mod_req
 access_mod_request_liquidation_line,mod_request.mod_request_liquidation_line,model_mod_request_liquidation_sheet_line,,1,1,1,1
 access_mod_request_report,mod_request.mod_request_report_date,model_mod_request_report_date_wizard,,1,1,1,1
 access_account_payment_lines,mod_request.account_payment_lines,model_account_payment_lines_req,,1,1,1,1
+access_mod_request_repayment,mod_request.mod_request_repayment,model_mod_request_repayment,,1,1,1,1

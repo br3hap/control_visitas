@@ -233,6 +233,7 @@ class Main(http.Controller):
                     # 'json_text': ln['json_text'],
                     # "partner_id":ln['partner_ruc']
                     "partner_id":number_ruc_dni.id if number_ruc_dni else '',
+                    # 'tag_sustentado':'pending'
 
                 }
                 if name_request_and_requirement:

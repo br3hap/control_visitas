@@ -115,6 +115,7 @@ class mod_request(models.Model):
     expense_generated = fields.Selection(LIST_EXPENSE, string='Expense Generated', default='pending')
     # liquidation_generated = fields.Selection(LIST_LIQUIDATION, string='Liquidation Generated', default='pending')
     # liquidation_generated_b = fields.Boolean(string='Liquidation Generated', default=False)
+
     
     # DNINACO
     def _compute_count_payment(self):
@@ -254,7 +255,9 @@ class mod_request(models.Model):
                                 'accounting_date': fecha_expense,
                                 'product_id': line.product_id.id,
                                 'sheet_id': self.expense_sheet_id.id,
-                                # 'people_id':line.partner_id.id
+                                'people_id':line.partner_id.id,
+                                'description_rq':line.description_requirement,
+                                'account_analytic_id':line.account_analytic_id.id,
                 }
                 hr_expense_env.create(data_expense)
 
@@ -350,7 +353,9 @@ class mod_request(models.Model):
                                     'accounting_date': fecha_expense,
                                     'product_id': line.product_id.id,
                                     'sheet_id': expense_sheet_id.id,
-                                    # 'people_id':line.partner_id.id
+                                    'people_id':line.partner_id.id,
+                                    'description_rq':line.description_requirement,
+                                    'account_analytic_id':line.account_analytic_id.id,
                     }
                     hr_expense_env.create(data_expense)
 
@@ -698,7 +703,8 @@ class mod_request(models.Model):
                 'court_entity_requirement':'',
                 'ruc_dni_requirement':'',
                 'description_requirement':res.description,
-                'json_text':''
+                'json_text':'',
+                'tag_sustentado':'pending',
             }
        if res.type_request == 'administrative':
             requirement_env.create(data_request)
@@ -709,10 +715,17 @@ class mod_request(models.Model):
     
     def write(self, values):
         res = super(mod_request, self).write(values)
-        _logger.warning("requirement_env",self.mod_request_requirements_ids)
         if self.type_request == 'administrative':
             for rq in self.mod_request_requirements_ids:
                 rq.amount_requirement=self.amount
+        for r in self.mod_request_requirements_ids:
+            if r.qty_sin_sustentar < 0:
+                raise UserError('No puede registar sustento con monto mayor, al monto del requerimiento %s' %(r.name_requirement))
+            if r.sustentado:
+                r.tag_sustentado = 'supported'
+            else:
+                r.tag_sustentado = 'pending'
+
         return res
 
 

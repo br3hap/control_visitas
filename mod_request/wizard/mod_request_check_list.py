@@ -68,6 +68,8 @@ class mod_request_check_list_supported(models.TransientModel):
         cod_request = self._context['get_cod']
         mod_request=self.env['mod.request'].search([('id','=',cod_request)])
         mod_request.write({'observation_supported':observation_supported, 'checklist_supported':checklist_supported, 'attach_support':attach_support})
+        for mr in mod_request.file_supported_ids:
+            mr.state_line = 'completed'
         mod_request.action_supported()
 	
 	
