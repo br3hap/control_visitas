@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<templates>
-    <t t-name="header_custom.HeaderCustom">
-        <div class="oe_header_custom"> Tipo de cambio: <span
-                class="oe_header_custom_tipo_cambio"></span>
-        </div>
-    </t>
-</templates>

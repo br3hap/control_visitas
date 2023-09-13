@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_rellenar_cuotas,rellenar.cuotas,auto_cuotas.model_rellenar_cuotas,base.group_user,1,1,1,1

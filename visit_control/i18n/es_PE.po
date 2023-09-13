@@ -1,0 +1,261 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* visit_control
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20230908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-13 16:37+0000\n"
+"PO-Revision-Date: 2023-09-13 11:39-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_PE\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__date
+msgid "Date and Time"
+msgstr "Fecha y Hora"
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,help:visit_control.field_visit_control__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__id
+msgid "ID"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,help:visit_control.field_visit_control__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,help:visit_control.field_visit_control__message_needaction
+#: model:ir.model.fields,help:visit_control.field_visit_control__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,help:visit_control.field_visit_control__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.actions.act_window,name:visit_control.visit_control_menu_root
+#: model:ir.ui.menu,name:visit_control.menu_visit
+msgid "Mys Visits"
+msgstr "Mis Visitas"
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,help:visit_control.field_visit_control__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,help:visit_control.field_visit_control__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,help:visit_control.field_visit_control__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__patient_id
+msgid "Patient"
+msgstr "Paciente"
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__description
+msgid "Reason for visit"
+msgstr "Motivo de Visita"
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,help:visit_control.field_visit_control__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,help:visit_control.field_visit_control__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: visit_control
+#: code:addons/visit_control/models/visit_control.py:0
+#: model:ir.model,name:visit_control.model_visit_control
+#, python-format
+msgid "Visit Control"
+msgstr "Control de visitas"
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__name_visit
+msgid "Visitor name"
+msgstr "Nombre del visitante"
+
+#. module: visit_control
+#: model:ir.model.fields,field_description:visit_control.field_visit_control__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: visit_control
+#: model:ir.model.fields,help:visit_control.field_visit_control__website_message_ids
+msgid "Website communication history"
+msgstr ""

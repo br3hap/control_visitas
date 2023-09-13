@@ -1,0 +1,11 @@
+<odoo>
+    <data noupdate='0'>
+        <record id='seq_visit_control' model='ir.sequence'>
+            <field name='name'>Sequence Visit Control</field>
+            <field name='code'>visit.control</field>
+            <field name='prefix'>CONTROL-</field>
+            <field name='padding'>5</field>
+            <field name='company_id' eval='False' />
+        </record>
+    </data>
+</odoo>

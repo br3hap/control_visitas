@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_whatsapp_crm_whatsapp_crm,whatsapp_crm.whatsapp_crm,model_whatsapp_crm_whatsapp_crm,base.group_user,1,1,1,1

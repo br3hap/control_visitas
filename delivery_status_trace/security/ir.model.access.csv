@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_shipping.status,delivery_status_trace.shipping.status,delivery_status_trace.model_shipping_status,base.group_user,1,1,1,1
-access_shipping.trace,delivery_status_trace.shipping.trace,delivery_status_trace.model_shipping_trace,base.group_user,1,1,1,1
-access_shipping.vehicle,delivery_status_trace.shipping.vehicle,delivery_status_trace.model_shipping_vehicle,base.group_user,1,1,1,1
-access_shipping.trace.line,delivery_status_trace.shipping.trace.line,delivery_status_trace.model_shipping_trace_line,base.group_user,1,1,1,1

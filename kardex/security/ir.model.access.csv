@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_report_kardex,Report Kardex,kardex.model_report_kardex,base.group_user,1,1,1,1
-access_kardex_filter,Kardex Filter,kardex.model_kardex_filter,base.group_user,1,1,1,1
-access_stock_init_kardex,Stock initial kardex,kardex.model_stock_init_kardex,base.group_user,1,1,1,1

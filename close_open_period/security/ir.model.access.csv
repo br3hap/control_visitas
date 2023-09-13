@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_close_open_period,Close open Period,close_open_period.model_close_open_period,close_open_period.group_user_close_open_period,1,1,1,1
